@@ -4,9 +4,9 @@ layout: default
 
 # Hi, I' m Jason 👋
 
-Welcome to my portfolio. I work on tech art, real-time simulation, and rendering.
+I work on tech art, real-time simulation, and rendering. Explore my work across:
+- [3D Art](3d-art.html)
+- [Tech Art](tech-art.html)
+- [Computer Graphics](computer-graphics.html)
 
-## Projects
-
-### 🧩 Soft Body Simulation (XPBD)
-Real-time simulation in Unity using compute shaders and Extended Position-Based Dynamics.
+---
