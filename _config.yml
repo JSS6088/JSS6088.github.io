@@ -2,3 +2,14 @@ title: Portfolio
 description: A showcase of my tech art and rendering projects
 theme: jekyll-theme-slate
 
+# Optional: to show up on GitHub
+show_downloads: false
+
+# Custom navigation links
+navigation:
+  - name: 3D Art
+    link: /3d-art/
+  - name: Tech Art
+    link: /tech-art/
+  - name: Computer Graphics
+    link: /computer-graphics/
