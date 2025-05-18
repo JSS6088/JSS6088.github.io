@@ -1,0 +1,11 @@
+<nav class="navbar">
+    <span class="site-title">Jason Jiang</span>
+    
+    {% for item in site.navigation %}
+      <a href="{{ item.link | relative_url }}" 
+         class="{% if page.url == item.link %}nav-link-active{% else %}nav-link{% endif %}">
+      {{ item.name }}
+      </a>
+    {% endfor %}
+
+</nav>

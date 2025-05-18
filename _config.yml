@@ -1,17 +1,22 @@
 title: Portfolio
 description: A showcase of my tech art and rendering projects
-remote_theme: pages-themes/slate@v0.2.0
+theme: null
+
+# Plugins (GitHub Pages defaults, safe to include)
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-feed
+  - jekyll-seo-tag
 
 # Optional: to show up on GitHub
 show_downloads: false
 
 # Custom navigation links
 navigation:
+  - name: Home
+    link: /
   - name: 3D Art
-    link: /3d-art/
+    link: /3d-art.html
   - name: Tech Art
-    link: /tech-art/
+    link: /tech-art.html
   - name: Computer Graphics
-    link: /computer-graphics/
+    link: /computer-graphics.html

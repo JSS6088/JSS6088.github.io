@@ -3,10 +3,6 @@ layout: default
 title: Tech Art
 ---
 
-[Home](/) | [3D Art](/3d-art.html) | [Tech Art](/tech-art.html) | [Computer Graphics](/computer-graphics.html)
-
----
-
 # 🧪 Tech Art
 
 This section showcases my work in real-time simulations, tools, and shaders.

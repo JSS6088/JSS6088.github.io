@@ -2,3 +2,29 @@
 ---
 
 @import "jekyll-theme-slate";
+
+.navbar {
+  background-color: #222;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  .site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-link {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-link-active {
+    margin: 0 1rem;
+    color: gold;
+    text-decoration: none;
+  }
+}
