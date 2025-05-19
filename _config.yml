@@ -10,6 +10,11 @@ plugins:
 # Optional: to show up on GitHub
 show_downloads: false
 
+# kramdown
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+
 # Custom navigation links
 navigation:
   - name: Home

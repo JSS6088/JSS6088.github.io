@@ -3,6 +3,16 @@
 
 @import "jekyll-theme-slate";
 
+.layout-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.inner, .one-column, .two-column {
+  @extend .layout-wrap;
+}
+
 .navbar {
   background-color: #222;
   padding: 1rem 2rem;
@@ -26,5 +36,38 @@
     margin: 0 1rem;
     color: gold;
     text-decoration: none;
+  }
+}
+
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+}
+
+.two-column > * {
+  flex: 1 1 48%;
+  min-width: 320px;
+  box-sizing: border-box;
+}
+
+.two-column img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img + em {
+  display: block;
+  text-align: center;
+  color: #222;
+  font-size: 1.25em;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .two-column > * {
+    flex: 1 1 100%;
   }
 }

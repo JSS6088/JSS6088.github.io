@@ -1,11 +1,12 @@
 ---
 layout: default
 title: Home
+layout_style: one-column
 ---
 
-# Hi, I' m Jason 👋
+# Hi, I' m Jason 
 
-I work on tech art, real-time simulation, and rendering. Explore my work across:
+I work on environment art, tech art, and rendering. Explore my work across:
 - [3D Art](3d-art.html)
 - [Tech Art](tech-art.html)
 - [Computer Graphics](computer-graphics.html)

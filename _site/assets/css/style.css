@@ -266,7 +266,19 @@ Small Device Styles
   h5 { font-size: 14px; }
   h6 { font-size: 12px; }
   code, pre { min-width: 240px; max-width: 320px; font-size: 11px; } }
+.layout-wrap, .inner, .one-column, .two-column { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+
 .navbar { background-color: #222; padding: 1rem 2rem; text-align: center; }
 .navbar .site-title { font-size: 2rem; font-weight: bold; color: white; display: block; margin-bottom: 0.5rem; }
 .navbar .nav-link { margin: 0 1rem; color: white; text-decoration: none; }
 .navbar .nav-link-active { margin: 0 1rem; color: gold; text-decoration: none; }
+
+.two-column { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: 0.5rem; }
+
+.two-column > * { flex: 1 1 48%; min-width: 320px; box-sizing: border-box; }
+
+.two-column img { max-width: 100%; height: auto; display: block; }
+
+img + em { display: block; text-align: center; color: #222; font-size: 1.25em; margin-top: 0.5rem; }
+
+@media (max-width: 768px) { .two-column > * { flex: 1 1 100%; } }
