@@ -22,23 +22,23 @@ Using the painterly texture tool, I kept on making maps for the game, with more 
 
 <div class="two-column" markdown="1">
 
-![Garden](/assets/images/AGD/AGD_garden.png)
-*Garden*
+[![Garden](/assets/images/AGD/AGD_garden.png)
+*Garden*](/projects/agd/garden.html)
 
-![Banquet Hall](/assets/images/AGD/AGD_garden.png)
-*Banquet Hall*
+[![Banquet Hall](/assets/images/AGD/AGD_banquethall.png)
+*Banquet Hall*](/projects/agd/banquet-hall.html)
 
-![Island](/assets/images/AGD/AGD_garden.png)
-*Island*
+[![Island](/assets/images/AGD/AGD_island.png)
+*Island*](/projects/agd/island.html)
 
-![Pancake Palace](/assets/images/AGD/AGD_garden.png)
-*Pancake Palace*
+[![Pancake Palace](/assets/images/AGD/AGD_garden.png)
+*Pancake Palace*](/projects/agd/pancake-palace.html)
 
-![Metro](/assets/images/AGD/AGD_garden.png)
-*Metro*
+[![Metro](/assets/images/AGD/AGD_garden.png)
+*Metro*](/projects/agd/metro.html)
 
-![The Blast Furnace](/assets/images/AGD/AGD_garden.png)
-*The Blast Furnace*
+[![The Blast Furnace](/assets/images/AGD/AGD_factory.png)
+*The Blast Furnace*](/projects/agd/the-blast-furnace.html)
 
 </div>
 
