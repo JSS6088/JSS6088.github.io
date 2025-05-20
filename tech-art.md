@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Tech Art
-layout_style: two-column
 ---
 
 # 🧪 Tech Art

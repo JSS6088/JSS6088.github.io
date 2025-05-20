@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Home
-layout_style: one-column
 ---
+
+<div class="one-column" markdown="1">
 
 # Hi, I' m Jason 
 
@@ -11,3 +12,4 @@ I work on environment art, tech art, and rendering. Explore my work across:
 - [Tech Art](tech-art.html)
 - [Computer Graphics](computer-graphics.html)
 
+</div>

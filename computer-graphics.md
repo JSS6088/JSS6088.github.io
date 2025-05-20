@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Computer Graphics
-layout_style: two-column
 ---
 
 # 💡 Computer Graphics
