@@ -277,7 +277,7 @@ Small Device Styles
 
 .two-column > * { flex: 1 1 48%; min-width: 320px; box-sizing: border-box; }
 
-img { max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; height: auto; display: block; object-fit: crop; }
 
 a > img { display: block; margin: 0 auto; max-width: 100%; }
 

@@ -26,7 +26,13 @@ I followed a modular workflow to construct the scene from multiple base modules.
 
 ![Island Rock Module](/assets/images/AGD/Island_moduleRock.png)
 
+![Island Wood Module](/assets/images/AGD/Island_modulesWood.png)
+
 I researched on house with thatched roofs as well as rock cliffs for good references on creating those modules.
+
+</div>
+
+<div class="two-column" markdown="1">
 
 ![Island Reference 1](/assets/images/AGD/Island_ref_1.png)
 
