@@ -44,8 +44,10 @@ Using the painterly texture tool, I kept on making maps for the game, with more 
 
 <div class="one-column" markdown="1">
 
-## Camera Model
+## Camera Hard Surface
 
 More description goes here...
+
+[![Camera](/assets/images/AGD/AGD_factory.png)](/projects/camera.html)
 
 </div>
