@@ -8,6 +8,8 @@ title: Island
 ## Island
 I had fun creating a relaxing vacation beach scene. Since a large proportion of the level is going to be water, I spent most time creating a custom water shader. It has fully adjustable parameters to control the caustic pattern as well as the wave movement. Besides, this is a bigger level, so working in modular mindset is key. Thus, I modelled wooden planks and rocks in different variations, which I could later use to create wooden structures and rock cliffs.
 
+All images or videos are directly taken from unity.
+
 ![Island 1](/assets/images/AGD/Island_1.png)
 
 ![Island 2](/assets/images/AGD/Island_2.png)

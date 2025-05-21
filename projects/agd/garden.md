@@ -33,10 +33,16 @@ Rock modules for the pond area.
 
 Early concept art exploring royal garden design
 
-![Garden Rock Module](/assets/images/AGD/Garden_moduleRock.png)
+![Garden Rock Module](/assets/images/AGD/Garden_concept.png)
 
 I referenced from both outdoor garden design as well as oil paintings to create such a stylized garden scene.
 
-![Garden Rock Module](/assets/images/AGD/Garden_moduleRock.png)
+</div>
+
+<div class="two-column" markdown="1">
+
+![Garden Reference 1](/assets/images/AGD/Garden_ref_1.png)
+
+![Garden Reference 2](/assets/images/AGD/Garden_ref_2.png)
 
 </div>

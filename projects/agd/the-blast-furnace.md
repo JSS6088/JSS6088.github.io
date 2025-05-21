@@ -9,6 +9,8 @@ title: The Blast Furnace
 
 Living in Pittsburgh, I am deeply inspired by the Carrie Blast Furnace Landmark and have always wanted to recreate this historic moment in the game. To better understand how blast furnaces work, I paid for several on-site visits and researched their mechanism and role in steel production. It was exciting to see everything come together in the game, and I definitely couldn't wait to see chaotic fights in such a hazardous place!
 
+All images or videos are directly taken from unity.
+
 ![Factory 1](/assets/images/AGD/Factory_1.png)
 
 ![Factory 2](/assets/images/AGD/Factory_2.png)
