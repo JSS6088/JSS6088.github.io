@@ -31,23 +31,13 @@ Using the painterly texture tool, I kept on making maps for the game, with more 
 [![Island](/assets/images/AGD/AGD_island.png)
 *Island*](/projects/agd/island.html)
 
-[![Pancake Palace](/assets/images/AGD/AGD_garden.png)
+[![Pancake Palace](/assets/images/AGD/AGD_pancakepalace.png)
 *Pancake Palace*](/projects/agd/pancake-palace.html)
 
-[![Metro](/assets/images/AGD/AGD_garden.png)
+[![Metro](/assets/images/AGD/AGD_metro.png)
 *Metro*](/projects/agd/metro.html)
 
 [![The Blast Furnace](/assets/images/AGD/AGD_factory.png)
 *The Blast Furnace*](/projects/agd/the-blast-furnace.html)
-
-</div>
-
-<div class="one-column" markdown="1">
-
-## Camera Hard Surface
-
-More description goes here...
-
-[![Camera](/assets/images/AGD/AGD_factory.png)](/projects/camera.html)
 
 </div>

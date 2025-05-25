@@ -27,13 +27,13 @@ All images or videos are directly taken from unity.
 
 ### Breakdown
 
-Textures are first made in PBR style, then it went through the painterly filter in Substance Designer. This is more efficient than painting the entire texture map from scratch
+Textures are first made in PBR style, then it went through the painterly filter in Substance Designer. This is more efficient than painting the entire texture map from scratch.
 
 ![Factory Texture 1](/assets/images/AGD/Factory_texture_1.png)
 
 ![Factory Texture 2](/assets/images/AGD/Factory_texture_2.png)
 
-Warm lighting from lava are baked into lightmaps to save performance.
+Warm lighting from lava are baked into lightmaps to optimize performance.
 
 ![Factory Light map](/assets/images/AGD/Factory_lightmap.png)
 
