@@ -75,15 +75,8 @@ a > em {
 
 @media (max-width: 768px) {
   .two-column {
-    max-width: 100%;        
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
-    flex-direction: column;
-    display: flex;          // to ensure `flex-direction` applies
-  }
-
-  .two-column > * {
-    width: 100%;
-    box-sizing: border-box;
   }
 }
