@@ -1,18 +1,9 @@
 ---
 layout: default
-title: Home
+title: Blossom Shanghai
 ---
 
-<div class="one-column" markdown="1">
-
-# Hi, I' m Jason 
-
-I work on environment art, tech art, and rendering. Explore my work across:
-- [3D Art](3d-art.html)
-- [Tech Art](tech-art.html)
-- [Computer Graphics](computer-graphics.html)
-
-## Demo reel
+# Blossom Shanghai
 
 <div class="video-container">
   <iframe
@@ -21,6 +12,4 @@ I work on environment art, tech art, and rendering. Explore my work across:
     allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
-</div>
-
 </div>

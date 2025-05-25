@@ -13,11 +13,13 @@ This section showcases my work in real-time simulations, tools, and shaders.
 
 <div class="two-column" markdown="1">
 
-- Procedural Painterly Texture Generation
-- Water shader
-- Foliage shader
-- Real-Time Water Simulation
-- Real-Time Soft Body Simulation
-- Procedural facade generation
+[![A Gentlemen's Dispute](/assets/images/AGD/AGD_main.png)
+*Custom shaders to enhance visuals*](/projects/agd/a-gentlemens-dispute.html#tech-art)
+
+[![Blossom Shanghai](/assets/images/placeholder-image.webp)
+*Procedural models and materials to speedup production*](/projects/blossom-shanghai/blossom-shanghai.html)
+
+[![Its Clogged](/assets/images/placeholder-image.webp)
+*Real-time gpu simulation to enhance gameplay*](/projects/its-clogged/its-clogged.html)
 
 </div>

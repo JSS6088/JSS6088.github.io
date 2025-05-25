@@ -3,6 +3,8 @@ layout: default
 title: Banquet Hall
 ---
 
+<div class="one-column" markdown="1">
+
 ## Banquet Hall
 
 Banquet hall is the second map for A Gentlemen's Dispute. I had fun creating a highly decorated place for players to mess up! Most of the models are using the same painterly pipeline. This map is fully interior, so I am taking full adventage of light map baking to create realistic lighting. The lighting design in this map references classic royal dinners to make the place more "gentlemenly".
@@ -38,3 +40,5 @@ Paintings are AI-generated based on player characters with a European classic pr
 References for ornates and furnatures.
 
 ![Banquet hall references](/assets/images/AGD/Banquethall_ref.png)
+
+</div>

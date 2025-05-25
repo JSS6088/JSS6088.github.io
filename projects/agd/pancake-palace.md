@@ -9,6 +9,8 @@ title: Pancake Palace
 
 Pancake Palace is the first level that intentionally breaks away from the gentlemen’s theme, embracing the absurdity and chaos at the heart of the game. It draws heavy inspiration from the infamous Waffle House — a chain restaurant "famous" for its late-night brawls. I aimed to capture that rowdy, unpredictable energy and turn it into a fun, chaotic space where the fights feel right at home.
 
+The menu UI is made by our amazing artist Oscar! He also draws some concept art sketches that explores the scene mood. 
+
 All images or videos are directly taken from unity.
 
 ![Pancake Palace 1](/assets/images/AGD/PancakePalace_1.png)
