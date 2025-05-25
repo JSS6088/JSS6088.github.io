@@ -78,6 +78,11 @@ a > em {
     padding: 0 1rem;
   }
 
+  .one-column {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
   .two-column {
     max-width: 100%;
     flex-direction: column;
