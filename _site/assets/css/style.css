@@ -275,13 +275,10 @@ Small Device Styles
 
 .two-column { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: 0.5rem; }
 
-.two-column > * { flex: 1 1 48%; min-width: 320px; box-sizing: border-box; }
+.two-column > * { flex: 1 1 48%; box-sizing: border-box; }
 
 img { max-width: 100%; height: auto; display: block; object-fit: crop; }
 
 a > img { display: block; margin: 0 auto; max-width: 100%; }
 
 a > em { display: block; text-align: center; color: #222; font-size: 1.25em; margin-top: 0.5rem; }
-
-@media (max-width: 768px) { .two-column { max-width: 80%; margin: 0 auto; padding: 0 2rem; flex-direction: column; display: flex; }
-  .two-column > * { width: 100%; box-sizing: border-box; } }
