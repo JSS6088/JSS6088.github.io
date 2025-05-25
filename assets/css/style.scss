@@ -4,7 +4,7 @@
 @import "jekyll-theme-slate";
 
 .layout-wrap {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -73,7 +73,13 @@ a > em {
 }
 
 @media (max-width: 768px) {
+  .layout-wrap {
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+
   .two-column {
+    max-width: 100%;
     flex-direction: column;
   }
 
