@@ -74,16 +74,22 @@ a > em {
 }
 
 @media (max-width: 768px) {
+  .two-column {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;  // Equal side margins
+  }
+
   .two-column > * {
     flex: 1 1 100%;
+    max-width: 100%;  // Prevent overflow
+    box-sizing: border-box;
   }
-}
 
-@media (max-width: 768px) {
   .two-column img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90%;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
   }
 }
