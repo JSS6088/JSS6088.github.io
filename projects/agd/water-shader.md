@@ -7,6 +7,8 @@ title: Water Shader
 
 # Water Shader
 
+A few maps in our game *A Gentlemen's Dispute* feature water, and as the primary 3D artist, I was excited to develop a custom water shader for them. This was a valuable learning experience that helped me deepen my understanding of shader programming and game engine APIs. More importantly, it taught me how to bridge the gap between real-world phenomena and their digital counterparts — or, more often, their stylized abstractions.
+
 <div class="video-container">
   <iframe
     src="https://www.youtube.com/embed/zncquhNhr8U?autoplay=1&mute=1&loop=1&playlist=zncquhNhr8U&controls=0&playsinline=1"
@@ -16,7 +18,7 @@ title: Water Shader
   </iframe>
 </div>
 
-The water shader automatically applies foam to any intersecting geometry. 
+The water shader automatically applies foam to any intersecting geometry, adding an extra layer of visual detail without requiring manual setup.
 
 <div class="video-container">
   <iframe
@@ -31,7 +33,7 @@ The water shader automatically applies foam to any intersecting geometry.
 
 ### Color each zone
 
-Water has four components: shallow zone, deep zone, fog zone, caustic zone. The color of each zone are exposed as parameters for easy artistic control.
+Each water surface has four components: shallow zone, deep zone, fog zone, caustic zone. The color of each zone are exposed as parameters for easy artistic control.
 
 <div class="video-container">
   <iframe
@@ -76,6 +78,7 @@ The ocean plane geometry is animated using **simplex noise** to distort the vert
   </iframe>
 </div>
 
-As a learning opportunity, I wrote the simplex and worley noise by myself in **HLSL**.
+As a learning opportunity, I wrote the simplex and worley noise by myself in **HLSL**. The Book of Shaders is a specific helpful resource in assisting my shader creation process. 
+
 
 </div>

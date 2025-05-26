@@ -6,7 +6,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=266c950ea5350392cbff9934048a117a0a35f5d9">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=a7095acc74c79429b192c50df49c44e42ad28a4b">
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Painterly Texture | Portfolio</title>
@@ -76,13 +76,24 @@
 
   <h1 id="painterly-texture">Painterly Texture</h1>
 
-  <p>As the Art Director for <em>A Gentlemen’s Dispute</em>, a party game featuring stylized gentlemanly characters, I drew heavy inspiration from classical oil paintings—an aesthetic closely tied to portraiture and refined society. To bring this look to life across our 3D assets, I used <strong>Substance Designer</strong> to apply a painterly filter to each texture map. This provided a strong visual foundation, which I then refined with hand-painted touch-ups in <strong>Blender</strong>.</p>
+  <p>As the Art Director for <em>A Gentlemen’s Dispute</em>, a party game featuring stylized gentlemanly characters, I drew heavy inspiration from classical oil paintings — an aesthetic closely tied to portraiture and refined society. However, in traditional paintings, lighting is static and baked into the image through painted color. In contrast, our game features dynamic lighting and animated characters, which makes preserving a consistent painterly look more challenging. Relying solely on diffuse texture maps wasn’t enough — the illusion would break as lighting conditions changed.</p>
 
-  <p><img src="/assets/images/AGD/PainterlyShader_2.png" alt="Painterly Texture before after comparison" /></p>
+  <p>Fortunately, after some research, I came across a technique to keep 3D assets looking painterly under dynamic lighting. The key is to <strong>bake an object-space normal map</strong> of the model and then <em>paint over it</em> using the <strong>normal map’s base colors</strong> to create a painterly-stylized normal map. This painted normal map retains the essential surface detail for lighting while giving it a handcrafted, artistic appearance. As a result, the asset maintains its painterly style even as lighting changes — blending traditional artistic sensibility with the demands of real-time rendering.</p>
+
+  <p><img src="/assets/images/AGD/PainterlyShader_ref.png" alt="Painterly Texture reference" />
+<em>Painterly Texture reference - from <a href="https://www.youtube.com/watch?v=s8N00rjil_4&amp;t=2s">this video</a> at timestamp 7:00</em></p>
+
+  <p>However, bringing this style to every 3D asset manually would be overwhelming — especially as a solo artist. Hand-painting textures for every model was not scalable. To automate this, I used <strong>Substance Designer</strong> to generate stroke patterns and apply a painterly filter across texture maps procedurally.</p>
+
+  <p><img src="/assets/images/AGD/PainterlyShader_sdgraph.png" alt="Painterly Texture Substance Designer graph" /></p>
+
+  <p>To achieve a more convincing painterly look, the tool generates stroke patterns with constraints that mimic the way humans naturally paint — following surface direction, form, and areas of visual emphasis.</p>
 
   <p><img src="/assets/images/AGD/PainterlyShader_3.png" alt="Painterly Texture features" /></p>
 
-  <p><img src="/assets/images/AGD/PainterlyShader_sdgraph.png" alt="Painterly Texture Substance Designer graph" /></p>
+  <p>This tool gave each asset a stylized base layer, which I could then selectively refine by hand in <strong>Blender</strong> where needed. This workflow allowed for consistent, high-quality painterly visuals while keeping production efficient and manageable.</p>
+
+  <p><img src="/assets/images/AGD/PainterlyShader_2.png" alt="Painterly Texture before after comparison" /></p>
 
   <p>To maintain consistency between tools, I created a custom <strong>Shader Graph</strong> shader in <strong>Unity</strong> that uses a standard diffuse lighting calculation to separate the model into light, mid, and dark regions. This gave me intuitive, real-time control over color grading and shading directly in-engine, making it easy to fine-tune the painterly look and keep visuals cohesive across platforms.</p>
 
