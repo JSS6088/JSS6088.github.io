@@ -26,7 +26,7 @@
   height: 100%;
 }
 
-.inner, .one-column, .two-column {
+.inner, .one-column, .two-column, .three-column {
   @extend .layout-wrap;
 }
 
@@ -54,6 +54,18 @@
     color: gold;
     text-decoration: none;
   }
+}
+
+.three-column {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
+.three-column > * {
+  flex: 0 0 30%; 
+  box-sizing: border-box;
 }
 
 .two-column {
@@ -96,12 +108,14 @@ a > em {
   }
 
   .one-column, 
-  .two-column {
+  .two-column,
+  .three-column {
     max-width: 100%;
     justify-content: center;
   }
 
-  .two-column > * {
+  .two-column > *, 
+  .three-column > * {
     flex: 1 1 100%;
   }
 }

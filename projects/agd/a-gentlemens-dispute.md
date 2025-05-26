@@ -17,7 +17,7 @@ My workflow starts in **Blender**, where I model and UV assets. I then bake obje
 
 </div>
 
-<div class="two-column" markdown="1">
+<div class="three-column" markdown="1">
 
 [![Garden](/assets/images/AGD/AGD_garden.png)
 *Garden*](/projects/agd/garden.html)
@@ -49,15 +49,15 @@ I work with **Shader Graph**, **HLSL**, and **Substance Designer**, and actively
 
 </div>
 
-<div class="two-column" markdown="1">
+<div class="three-column" markdown="1">
 
-[![Painterly Texture Pipeline](/assets/images/placeholder-image.webp)
+[![Painterly Texture Pipeline](/assets/images/AGD/PainterlyShader_1.png)
 *Painterly Texture Pipeline*](/projects/agd/painterly-texture.html)
 
 [![Water Shader](/assets/images/AGD/WaterShader_1.png)
 *Water Shader*](/projects/agd/water-shader.html)
 
-[![Foliage Shader](/assets/images/placeholder-image.webp)
+[![Foliage Shader](/assets/images/AGD/FoliageShader_1.png)
 *Foliage Shader*](/projects/agd/foliage-shader.html)
 
 </div>
