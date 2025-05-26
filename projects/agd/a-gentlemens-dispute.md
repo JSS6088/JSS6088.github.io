@@ -51,13 +51,13 @@ I work with **Shader Graph**, **HLSL**, and **Substance Designer**, and actively
 
 <div class="two-column" markdown="1">
 
-[![Painterly Texture Pipeline](/assets/images/AGD/AGD_garden.png)
-*Painterly Texture Pipeline*](/projects/agd/garden.html)
+[![Painterly Texture Pipeline](/assets/images/placeholder-image.webp)
+*Painterly Texture Pipeline*](/projects/agd/painterly-texture.html)
 
-[![Water Shader](/assets/images/AGD/AGD_banquethall.png)
-*Water Shader*](/projects/agd/banquet-hall.html)
+[![Water Shader](/assets/images/AGD/WaterShader_1.png)
+*Water Shader*](/projects/agd/water-shader.html)
 
-[![Foliage Shader](/assets/images/AGD/AGD_island.png)
-*Foliage Shader*](/projects/agd/island.html)
+[![Foliage Shader](/assets/images/placeholder-image.webp)
+*Foliage Shader*](/projects/agd/foliage-shader.html)
 
 </div>
