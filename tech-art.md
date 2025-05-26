@@ -13,7 +13,7 @@ This section showcases my work in real-time simulations, tools, and shaders.
 
 <div class="two-column" markdown="1">
 
-[![A Gentlemen's Dispute](/assets/images/AGD/AGD_main.png)
+[![A Gentlemen's Dispute](/assets/images/AGD/AGD_Main.png)
 *Custom shaders to enhance visuals*](/projects/agd/a-gentlemens-dispute.html#tech-art)
 
 [![Blossom Shanghai](/assets/images/placeholder-image.webp)

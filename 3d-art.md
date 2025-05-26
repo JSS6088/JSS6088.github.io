@@ -13,7 +13,7 @@ Here are some of my 3D modeling and texturing works, focusing on environment art
 
 <div class="two-column" markdown="1">
 
-[![A Gentlemen's Dispute](/assets/images/AGD/AGD_main.png)
+[![A Gentlemen's Dispute](/assets/images/AGD/AGD_Main.png)
 *A Gentlemen's Dispute - A chaotic party brawler!*](/projects/agd/a-gentlemens-dispute.html#env-art)
 
 [![Blossom Shanghai](/assets/images/placeholder-image.webp)
