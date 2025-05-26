@@ -11,7 +11,9 @@ _A Gentlemen's Dispute_ is a slapstick physics-based **party brawler** where pla
 
 ## Environment Art {#env-art}
 
-As the primary 3D artist, I'm responsible for **creating game maps** and **managing art pipeline**. Inspired from classic protraits for aristocrats, I art directed the game to have a **painterly look**. To relate the game better with the gentlemen theme, I build scenes that depicts their luxiourous life: garden, banquet hall, and private island, with more coming in the future!
+As the lead 3D artist, I’m responsible for **environment art** and **art pipeline management**. I established a distinctive **painterly visual style**, inspired by classical aristocratic portraits, to support the game's gentlemanly theme. I’ve created six maps so far, with more coming in the future.
+
+My workflow starts in **Blender**, where I model and UV assets. I then bake object-space normal maps and process them in **Substance Designer** using custom painterly filters to achieve the desired texture style. After refining details in Blender, assets are integrated into **Unity**, where I finalize the look with lighting adjustments and post-processing, ensuring visual consistency across each scene.
 
 </div>
 
@@ -41,7 +43,9 @@ As the primary 3D artist, I'm responsible for **creating game maps** and **manag
 
 ## Technical Art {#tech-art}
 
-To create assets efficiently, I made a painterly texture using **Adobe Substance Designer**. 
+In addition to leading environment art, I’m also responsible for the technical execution of visuals in _A Gentlemen’s Dispute_. My contributions include **writing custom shaders** to enhance visual fidelity, **developing tools** to streamline 3D art production, and **implementing various optimizations** to ensure smooth performance across a range of hardware.
+
+I work with **Shader Graph**, **HLSL**, and **Substance Designer**, and actively optimize **Unity settings** to balance visual quality with runtime efficiency.
 
 </div>
 
