@@ -279,7 +279,7 @@ Small Device Styles
 
 .two-column { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: 0.5rem; }
 
-.two-column > * { flex: 0 0 48%; max-width: 48%; box-sizing: border-box; }
+.two-column > * { flex: 0 0 47%; box-sizing: border-box; }
 
 img { max-width: 100%; height: auto; display: block; object-fit: crop; }
 
@@ -287,7 +287,6 @@ a > img { max-width: 100%; display: block; margin: 0 auto; }
 
 a > em { display: block; text-align: center; color: #222; font-size: 1.25em; margin-top: 0.5rem; }
 
-@media (max-width: 768px) { .layout-wrap, .inner, .one-column, .two-column { max-width: 95%; padding: 0 1rem; }
-  .one-column { max-width: 100%; flex-direction: column; }
-  .two-column { max-width: 100%; flex-direction: column; }
+@media screen and (max-width: 992px) { .layout-wrap, .inner, .one-column, .two-column { max-width: 95%; padding: 0 1rem; }
+  .one-column, .two-column { max-width: 100%; justify-content: center; }
   .two-column > * { flex: 1 1 100%; } }

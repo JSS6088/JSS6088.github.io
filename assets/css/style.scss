@@ -64,8 +64,7 @@
 }
 
 .two-column > * {
-  flex: 0 0 48%; 
-  max-width: 48%;
+  flex: 0 0 47%; 
   box-sizing: border-box;
 }
 
@@ -90,20 +89,16 @@ a > em {
   margin-top: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .layout-wrap {
     max-width: 95%;
     padding: 0 1rem;
   }
 
-  .one-column {
-    max-width: 100%;
-    flex-direction: column;
-  }
-
+  .one-column, 
   .two-column {
     max-width: 100%;
-    flex-direction: column;
+    justify-content: center;
   }
 
   .two-column > * {
