@@ -102,11 +102,42 @@
 
   <p>The <strong>caustic zone</strong> is defined through a <strong>worley noise</strong>.</p>
 
-  <p>The <strong>shallow and deep zone</strong> is defined through a depth mask calculated from <strong>height difference</strong> between water surface and ocean floor. This is calculated through subtracting the <em>w</em> component of camera position with … and taking its <em>y</em> component. A <strong><em>smoothstep</em> function</strong> is finally applied to threshold the value.</p>
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">worley</span> <span class="o">=</span> <span class="n">worley_noise</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="mf">5.0</span><span class="o">*</span><span class="n">_WorleyScale</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">causticMask</span> <span class="o">=</span> <span class="n">smoothstep</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">worley</span><span class="p">);</span>
+</code></pre></div>  </div>
+
+  <p>The <strong>shallow and deep zone</strong> is defined through a depth mask calculated from <strong>height difference</strong> between water surface and ocean floor. We can get the distance between camera to ocean surface from the clip-space position of the pixel. We can get the distance between camera to ocean floor sampling from the z-depth texture.</p>
+
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Calculate depth mask</span>
+<span class="n">float2</span> <span class="n">screenSpaceUV</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">screenSpace</span><span class="p">.</span><span class="n">xy</span> <span class="o">/</span> <span class="n">i</span><span class="p">.</span><span class="n">screenSpace</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">sceneDepth</span> <span class="o">=</span> <span class="n">LinearEyeDepth</span><span class="p">(</span><span class="n">SAMPLE_DEPTH_TEXTURE</span><span class="p">(</span><span class="n">_CameraDepthTexture</span><span class="p">,</span> <span class="n">screenSpaceUV</span><span class="p">));</span>
+<span class="n">float3</span> <span class="n">viewDirection</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">wsViewDir</span><span class="p">;</span>
+      
+<span class="cm">/** 
+    i.screenSpace.w is the distance from camera to water surface
+    sceneDepth is distance from camera to the underwater object
+    Subtracting them gets the distance between underwater object to the water surface
+    Extract only y component to get the vertical distance
+**/</span>
+<span class="kt">float</span> <span class="n">rawDepth</span> <span class="o">=</span> <span class="p">((</span><span class="n">sceneDepth</span> <span class="o">-</span> <span class="n">i</span><span class="p">.</span><span class="n">screenSpace</span><span class="p">.</span><span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">viewDirection</span><span class="p">).</span><span class="n">y</span><span class="p">;</span>
+</code></pre></div>  </div>
 
   <p><strong>Foam</strong> is a byproduct of this depth mask with a <strong><em>step</em> function</strong> to threshold the value. It is combined with the caustic zone because I dont think these two need to have different colors.</p>
 
-  <p>The <strong>fog zone</strong> is defined similarly using camera <em>w</em> component to get the depth of the scene.</p>
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Calculate foam mask (where to place foams)</span>
+<span class="kt">float</span> <span class="n">speed</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">_Time</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">_IsMoving</span> <span class="o">*</span> <span class="n">_Speed</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">foamDepth</span> <span class="o">=</span> <span class="n">rawDepth</span> <span class="o">/</span> <span class="p">(</span><span class="n">_FoamSize</span><span class="o">*</span><span class="mf">0.5</span><span class="o">*</span><span class="n">_DepthFade</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">foamMask</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nf">simplex_noise</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">speed</span><span class="p">),</span> <span class="n">_FoamScale</span><span class="o">*</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">foamDepth</span><span class="p">);</span> 
+
+<span class="c1">// Calculate caustic mask</span>
+<span class="kt">float</span> <span class="n">causticMask</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">float4</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">noiseCaustic</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">_GlobalScale</span><span class="p">),</span> <span class="n">foamMask</span><span class="p">);</span> 
+</code></pre></div>  </div>
+
+  <p>The <strong>fog zone</strong> is defined using distance to the center in UV space, since the ocean is UV unwrapped in a way where the center is cloest to player.</p>
+
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">fogDepth</span> <span class="o">=</span> <span class="n">saturate</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">pow</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pow</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">-</span><span class="mf">0.2</span><span class="p">);</span> 
+<span class="kt">float</span> <span class="n">fogFactor</span> <span class="o">=</span> <span class="n">exp2</span><span class="p">(</span><span class="o">-</span><span class="n">pow</span><span class="p">(</span><span class="n">fogDepth</span><span class="o">*</span><span class="mf">3.0</span><span class="o">*</span><span class="n">_HasFog</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></div>  </div>
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/In52MVVBxYQ?mute=1&amp;loop=1&amp;playlist=In52MVVBxYQ&amp;controls=0&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -116,13 +147,35 @@
 
   <p>The caustic zone is animated through distorting the UV space of the worley noise with <strong>a simplex noise</strong> in fragment shader.</p>
 
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Offset water</span>
+<span class="n">float2</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">float2</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">_OffsetDirection</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">_OffsetDirection</span><span class="p">));</span>
+<span class="n">i</span><span class="p">.</span><span class="n">uv</span> <span class="o">+=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">_OffsetSpeed</span> <span class="o">*</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">_Time</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">_IsMoving</span><span class="p">;</span>
+
+<span class="kt">float</span> <span class="n">speed</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">_Time</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">_IsMoving</span> <span class="o">*</span> <span class="n">_Speed</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">_SimplexScale</span><span class="p">;</span>                
+<span class="kt">float</span> <span class="n">noise1</span> <span class="o">=</span> <span class="n">simplex_noise</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">speed</span><span class="p">),</span> <span class="n">scale</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">noise2</span> <span class="o">=</span> <span class="n">simplex_noise</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="o">+</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">speed</span><span class="p">),</span> <span class="n">scale</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+
+<span class="n">i</span><span class="p">.</span><span class="n">uv</span> <span class="o">+=</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">float2</span><span class="p">(</span><span class="n">noise1</span><span class="p">,</span> <span class="n">noise2</span><span class="p">);</span>
+
+<span class="c1">//Use worley noise to generate caustic...</span>
+</code></pre></div>  </div>
+
   <p>The ocean plane geometry is animated using <strong>simplex noise</strong> to distort the vertex position in vertex shader.</p>
+
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Displace vertices to simulate ocean waves</span>
+<span class="kt">float</span> <span class="n">speed</span> <span class="o">=</span> <span class="mf">0.0025</span> <span class="o">*</span> <span class="n">_Time</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">_IsDeforming</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">_SimplexScale</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">noise</span> <span class="o">=</span> <span class="n">simplex_noise</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">speed</span><span class="p">),</span> <span class="n">scale</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="c1">// Move vertex positions</span>
+<span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mf">0.008</span><span class="o">*</span><span class="n">_Amp</span><span class="o">*</span><span class="n">noise</span><span class="p">;</span>
+</code></pre></div>  </div>
 
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/u2hBoh7S5-I?mute=1&amp;loop=1&amp;playlist=u2hBoh7S5-I&amp;controls=0&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
   </div>
 
-  <p>As a learning opportunity, I wrote the simplex and worley noise by myself in <strong>HLSL</strong>. The Book of Shaders is a specific helpful resource in assisting my shader creation process.</p>
+  <p>As a learning opportunity, I wrote the simplex and worley noise by myself in <strong>HLSL</strong>. <a href="https://thebookofshaders.com/">The Book of Shaders</a> is a specific helpful resource in assisting my shader creation process.</p>
 
 </div>
 
