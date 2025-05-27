@@ -7,7 +7,7 @@ title: Foliage Shader
 
 # Foliage Shader
 
-Some maps in our game _A Gentlemen's Dispute_*_ include foliage made from leaf and branch cards. However, simply placing them statically in the scene made them look flat and unnatural. To bring the foliage to life, I created a custom foliage shader using **Shader Graph** that animates the leaves with simple noise-based motion.
+Some maps in our game _A Gentlemen's Dispute_ include foliage made from leaf and branch cards. However, simply placing them statically in the scene made them look flat and unnatural. To bring the foliage to life, I created a custom foliage shader using **Shader Graph** that animates the leaves with simple noise-based motion.
 
 <div class="video-container">
   <iframe
