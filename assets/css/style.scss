@@ -3,12 +3,6 @@
 
 @import "jekyll-theme-slate";
 
-.layout-wrap {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -27,7 +21,9 @@
 }
 
 .inner, .one-column, .two-column, .three-column {
-  @extend .layout-wrap;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .navbar {
@@ -43,16 +39,18 @@
     margin-bottom: 0.5rem;
   }
 
-  .nav-link {
+  .nav-link, 
+  .nav-link-active {
     margin: 0 1rem;
-    color: white;
     text-decoration: none;
   }
 
+  .nav-link {
+    color: white;
+  }
+
   .nav-link-active {
-    margin: 0 1rem;
     color: gold;
-    text-decoration: none;
   }
 }
 
@@ -80,13 +78,7 @@
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  object-fit: crop;
-}
-
+p > img,
 a > img {
   max-width: 100%;
   display: block;
@@ -102,16 +94,11 @@ a > em {
 }
 
 @media screen and (max-width: 992px) {
-  .layout-wrap {
-    max-width: 95%;
-    padding: 0 1rem;
-  }
-
   .one-column, 
   .two-column,
   .three-column {
-    max-width: 100%;
-    justify-content: center;
+    max-width: 95%;
+    padding: 0 1rem;
   }
 
   .two-column > *, 

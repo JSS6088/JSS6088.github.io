@@ -13,8 +13,13 @@ Projects focused on rendering algorithms and graphics research.
 
 <div class="two-column" markdown="1">
 
-- Texture Mapping
-- Path Tracing
-- Progressive Photon Mapping
+[![Texture Mapping](/assets/images/placeholder-image.png)
+*Texture Mapping*](/projects/agd/a-gentlemens-dispute.html)
+
+[![Path tracing](/assets/images/placeholder-image.png)
+*Path tracing*](/projects/agd/a-gentlemens-dispute.html)
+
+[![Progressive Photon Mapping](/assets/images/placeholder-image.png)
+*Progressive Photon Mapping*](/projects/agd/a-gentlemens-dispute.html)
 
 </div>
