@@ -16,7 +16,7 @@ Here are some of my 3D modeling and texturing works, focusing on environment art
 [![A Gentlemen's Dispute](/assets/images/AGD/AGD_thumbnail.png)
 *A Gentlemen's Dispute - A chaotic party brawler!*](/projects/agd/a-gentlemens-dispute.html#env-art)
 
-[![Sony camera](/assets/images/placeholder-image.png)
+[![Sony camera](/assets/images/Camera/Camera_thumbnail.png)
 *Hard surface camera model*](/projects/camera/camera.html)
 
 </div>
