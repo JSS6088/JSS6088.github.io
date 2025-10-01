@@ -17,7 +17,7 @@ As the technical artist, I created various shaders for the game's visual, all wr
 
 <div class="three-column" markdown="1">
 
-[![Möbius Shader](/assets/images/placeholder-image.png)
+[![Möbius Shader](/assets/images/ItsClogged/Mobius_render.png)
 *Möbius Shader*](/projects/its-clogged/möbius-shader.html)
 
 [![Screenspace Outline Shader](/assets/images/placeholder-image.png)

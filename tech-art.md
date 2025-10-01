@@ -19,7 +19,7 @@ This section showcases my work in real-time simulations, tools, and shaders.
 [![Blossom Shanghai](/assets/images/BlossomShanghai/BlossomShanghai_thumbnail.png)
 *Blossom Shanghai - Recreating Shanghai in 1990s*](/projects/blossom-shanghai/blossom-shanghai.html)
 
-[![Its Clogged](/assets/images/placeholder-image.png)
+[![Its Clogged](/assets/images/ItsClogged/Mobius_render.png)
 *Its Clogged - Climb up as a hotel janitor*](/projects/its-clogged/its-clogged.html)
 
 </div>
