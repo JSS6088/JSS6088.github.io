@@ -10,7 +10,7 @@ title: Möbius Shader
 In _It’s Clogged_, we wanted players to feel cozy while cleaning the room. To support this mood, I explored a cartoony, illustrated look inspired by the Möbius art style—simple flat colors at a distance, enriched with hand-drawn hatching details up close.
 
 ![Möbius Render](/assets/images/ItsClogged/Mobius_render.png)
-*Scene using the Möbius shader, models by our artist Jerry*
+*Scene using the Möbius shader, outline rendering created by me explained [here](screenspace-outline-shader.html), models by our artist Jerry*
 
 ## Breakdown
 

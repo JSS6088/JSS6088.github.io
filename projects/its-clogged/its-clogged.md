@@ -20,7 +20,7 @@ As the technical artist, I created various shaders for the game's visual, all wr
 [![Möbius Shader](/assets/images/ItsClogged/Mobius_render.png)
 *Möbius Shader*](/projects/its-clogged/möbius-shader.html)
 
-[![Screenspace Outline Shader](/assets/images/placeholder-image.png)
+[![Screenspace Outline Shader](/assets/images/ItsClogged/OutlineScreenSpace_render.png)
 *Screenspace Outline Shader*](/projects/its-clogged/screenspace-outline-shader.html)
 
 [![Inverted Hull Outline Shader](/assets/images/placeholder-image.png)
