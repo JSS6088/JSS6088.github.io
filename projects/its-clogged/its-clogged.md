@@ -23,7 +23,7 @@ As the technical artist, I created various shaders for the game's visual, all wr
 [![Screenspace Outline Shader](/assets/images/ItsClogged/OutlineScreenSpace_render.png)
 *Screenspace Outline Shader*](/projects/its-clogged/screenspace-outline-shader.html)
 
-[![Inverted Hull Outline Shader](/assets/images/placeholder-image.png)
-*Inverted Hull Outline Shader*](/projects/its-clogged/invertedhull-outline-shader.html)
+[![Inverted Hull Outline Shader](/assets/images/ItsClogged/OutlineInvertedHull_render.png)
+*Inverted Hull Outline Shader*](/projects/its-clogged/invertedhull-highlight-shader.html)
 
 </div>
