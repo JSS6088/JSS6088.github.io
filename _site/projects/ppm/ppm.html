@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <!-- HEADER -->
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=fa9d462c26f70922b7da806868015ec6dec07fd0">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Progressive Photon Mapping | Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Progressive Photon Mapping" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A showcase of my tech art and rendering projects" />
+<meta property="og:description" content="A showcase of my tech art and rendering projects" />
+<link rel="canonical" href="http://localhost:4000/projects/ppm/ppm.html" />
+<meta property="og:url" content="http://localhost:4000/projects/ppm/ppm.html" />
+<meta property="og:site_name" content="Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Progressive Photon Mapping" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A showcase of my tech art and rendering projects","headline":"Progressive Photon Mapping","url":"http://localhost:4000/projects/ppm/ppm.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+    <span class="site-title">Jason Jiang</span>
+    
+    
+      <a href="/" 
+         class="nav-link">
+      Home
+      </a>
+    
+      <a href="/3d-art.html" 
+         class="nav-link">
+      3D Art
+      </a>
+    
+      <a href="/tech-art.html" 
+         class="nav-link">
+      Tech Art
+      </a>
+    
+      <a href="/computer-graphics.html" 
+         class="nav-link">
+      Computer Graphics
+      </a>
+    
+
+</nav>
+    
+    
+    <div id="header_wrap" class="outer"></div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <div class="one-column">
+
+  <h2 id="progressive-photon-mapping">Progressive Photon Mapping</h2>
+
+  <p>As the final project of Physics-Based rendering course from Carngie Mellon University, I decided to implement a rendering algorithm called <strong>Progressive Photon Mapping</strong> to improve the quality of water rendering. Everything is implemented in <strong>C++</strong>.</p>
+
+  <p>Rendering water is difficult because of its special light path that traditional path tracing cannot capture. The pipeline captures nuanced lighting effects such as caustics and indirect lighting and showcases improvement in rendering quality compared to path tracing without sacrificing performance.</p>
+
+  <p><img src="/assets/images/ppm/PPM_water_PPM_100.png" alt="Progressive Photon Mapping" />
+<em>Render result using progressive photon mapping</em></p>
+
+  <h2 id="breakdown">Breakdown</h2>
+
+  <p>I first implemented the normal, non-progressive version of photon mapping as a head start.</p>
+
+  <h3 id="photon-emission-tracing-and-storage">Photon emission, tracing and storage</h3>
+
+  <p>The algorithm starts by <strong>shooting photons onto the scene</strong> in from the light source. Each time the photon hits a surface I record its hit location, incoming direction, and current photon power. After the photon power diminishes under a certain extent, I terminate the process. One caveat is that we do not store any photon on specular surfaces because during rendering, the probability of having a matching photon from a specific direction is very low, so the photons do not contribute to anything during rendering phase.</p>
+
+  <p><img src="/assets/images/ppm/PPM_photons100k_bright.png" alt="Visualizing photons" />
+<em>Photons visualized, the scene has a red light on the left and blue light on the right</em></p>
+
+  <h3 id="photon-powerradiance-estimate">Photon power(radiance) estimate</h3>
+
+  <p>Afterwards, we start the rendering process just like normal path tracing. We shoot a ray from the camera until it hits a non-specular surface, we then <strong>run an estimate of power(radiance)</strong> at the hit position according to nearby photons. To get nearby photons, I store photons in a <strong>kd-tree</strong> to achieve logrithmatic speed during searching phase.
+To improve the quality, I only did power estimate for <strong>indirect lighting</strong> and used <strong>Multi-Important Sampling</strong> for <strong>direct lighting</strong>.</p>
+
+  <p><img src="/assets/images/ppm/PPM_toyMISr0.01.png" alt="Rendering phase" />
+<em>Renderings from photon mapping</em></p>
+
+  <h3 id="progressive-photon-mapping-1">Progressive Photon Mapping</h3>
+
+  <p>Currently, the quality of rendering depends on the number of photons, which puts a challenge on memory consumption. On the other hand, progressive photon mapping renders independent image with <strong>decreasing photon search radius</strong>, then produces the final image as a <strong>running average</strong>. Therefore, it can produce high quality renders without putting any bound on number of stored photons.</p>
+
+</div>
+
+<div class="two-column">
+
+  <p><img src="/assets/images/ppm/PPM_water_MIS.png" alt="Path tracing" />
+<em>Traditional path tracing rendering</em></p>
+
+  <p><img src="/assets/images/ppm/PPM_water_PPM_100.png" alt="PPM" />
+<em>Progressive photon mapping after 100 iterations</em></p>
+
+</div>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Portfolio maintained by <a href="https://github.com/JSS6088">JSS6088</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

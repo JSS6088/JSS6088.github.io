@@ -13,13 +13,10 @@ Projects focused on rendering algorithms and graphics research.
 
 <div class="two-column" markdown="1">
 
-[![Path tracing](/assets/images/placeholder-image.png)
-*Path tracing*](/projects/agd/a-gentlemens-dispute.html)
+[![Scotty3D](/assets/images/Scotty3D/Scotty3D_AGD.png)
+*Scotty3D - Implement a graphics package*](/projects/scotty3d/scotty3d.html)
 
-[![Progressive Photon Mapping](/assets/images/placeholder-image.png)
-*Progressive Photon Mapping*](/projects/agd/a-gentlemens-dispute.html)
-
-[![Water particle simulation](/assets/images/placeholder-image.png)
-*Water particle simulation*](/projects/agd/a-gentlemens-dispute.html)
+[![Progressive Photon Mapping](/assets/images/PPM/PPM_water_PPM_100.png)
+*Progressive Photon Mapping*](/projects/ppm/ppm.html)
 
 </div>
