@@ -272,8 +272,8 @@ Small Device Styles
 
 .inner, .one-column, .two-column, .three-column { max-width: 80%; margin: 0 auto; padding: 0 2rem; }
 
-.navbar { background-color: #222; padding: 1rem 2rem; text-align: center; }
-.navbar .site-title { font-size: 2rem; font-weight: bold; color: white; display: block; margin-bottom: 0.5rem; }
+.navbar { background-color: #222; padding: 1rem 2rem; justify-content: center; text-align: center; align-items: center; }
+.navbar .site-title { font-size: 3rem; font-weight: bold; color: white; display: block; }
 .navbar .nav-link, .navbar .nav-link-active { margin: 0 1rem; text-decoration: none; }
 .navbar .nav-link { color: white; }
 .navbar .nav-link-active { color: gold; }
@@ -292,3 +292,10 @@ a > em { display: block; text-align: center; color: #222; font-size: 1.25em; mar
 
 @media screen and (max-width: 992px) { .one-column, .two-column, .three-column { max-width: 95%; padding: 0 1rem; }
   .two-column > *, .three-column > * { flex: 1 1 100%; } }
+.social-icons { display: flex; justify-content: center; gap:  1rem; margin-bottom: 0.5rem; }
+
+.social-icons a { display: inline-flex; align-items: center; justify-content: center; }
+
+.icon-btn { width: 36px; height: 36px; opacity: 0.8; transition: opacity 0.2s ease, transform 0.2s ease; border: none !important; outline: none !important; background: transparent !important; box-shadow: none !important; }
+
+.icon-btn:hover { opacity: 1; transform: scale(1.1); }

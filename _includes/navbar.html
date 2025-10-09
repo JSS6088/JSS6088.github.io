@@ -1,11 +1,20 @@
 <nav class="navbar">
     <span class="site-title">Jason Jiang</span>
-    
+
+    <div class="social-icons">
+      <a href="mailto:yunfeng2@andrew.cmu.edu" title="Email">
+        <img src="/assets/images/Contacts/gmail.svg" alt="Email" class="icon-btn">
+      </a>
+      <a href="https://www.linkedin.com/in/yunfengjiang" target="_blank" rel="noopener" title="LinkedIn">
+        <img src="/assets/images/Contacts/linkedin.svg" alt="LinkedIn" class="icon-btn">
+      </a>
+    </div>
+  
     {% for item in site.navigation %}
       <a href="{{ item.link | relative_url }}" 
          class="{% if page.url == item.link %}nav-link-active{% else %}nav-link{% endif %}">
-      {{ item.name }}
+        {{ item.name }}
       </a>
     {% endfor %}
-
+  
 </nav>

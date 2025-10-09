@@ -20,3 +20,4 @@ Projects focused on rendering algorithms and graphics research.
 *Progressive Photon Mapping*](/projects/ppm/ppm.html)
 
 </div>
+
