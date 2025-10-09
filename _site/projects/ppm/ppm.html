@@ -80,7 +80,7 @@
 
   <p>Rendering water is difficult because of its special light path that traditional path tracing cannot capture. The pipeline captures nuanced lighting effects such as caustics and indirect lighting and showcases improvement in rendering quality compared to path tracing without sacrificing performance.</p>
 
-  <p><img src="/assets/images/ppm/PPM_water_PPM_100.png" alt="Progressive Photon Mapping" />
+  <p><img src="/assets/images/PPM/PPM_water_PPM_100.png" alt="Progressive Photon Mapping" />
 <em>Render result using progressive photon mapping</em></p>
 
   <h2 id="breakdown">Breakdown</h2>
@@ -91,7 +91,7 @@
 
   <p>The algorithm starts by <strong>shooting photons onto the scene</strong> in from the light source. Each time the photon hits a surface I record its hit location, incoming direction, and current photon power. After the photon power diminishes under a certain extent, I terminate the process. One caveat is that we do not store any photon on specular surfaces because during rendering, the probability of having a matching photon from a specific direction is very low, so the photons do not contribute to anything during rendering phase.</p>
 
-  <p><img src="/assets/images/ppm/PPM_photons100k_bright.png" alt="Visualizing photons" />
+  <p><img src="/assets/images/PPM/PPM_photons100k_bright.png" alt="Visualizing photons" />
 <em>Photons visualized, the scene has a red light on the left and blue light on the right</em></p>
 
   <h3 id="photon-powerradiance-estimate">Photon power(radiance) estimate</h3>
@@ -99,7 +99,7 @@
   <p>Afterwards, we start the rendering process just like normal path tracing. We shoot a ray from the camera until it hits a non-specular surface, we then <strong>run an estimate of power(radiance)</strong> at the hit position according to nearby photons. To get nearby photons, I store photons in a <strong>kd-tree</strong> to achieve logrithmatic speed during searching phase.
 To improve the quality, I only did power estimate for <strong>indirect lighting</strong> and used <strong>Multi-Important Sampling</strong> for <strong>direct lighting</strong>.</p>
 
-  <p><img src="/assets/images/ppm/PPM_toyMISr0.01.png" alt="Rendering phase" />
+  <p><img src="/assets/images/PPM/PPM_toyMISr0.01.png" alt="Rendering phase" />
 <em>Renderings from photon mapping</em></p>
 
   <h3 id="progressive-photon-mapping-1">Progressive Photon Mapping</h3>
@@ -110,10 +110,10 @@ To improve the quality, I only did power estimate for <strong>indirect lighting<
 
 <div class="two-column">
 
-  <p><img src="/assets/images/ppm/PPM_water_MIS.png" alt="Path tracing" />
+  <p><img src="/assets/images/PPM/PPM_water_MIS.png" alt="Path tracing" />
 <em>Traditional path tracing rendering</em></p>
 
-  <p><img src="/assets/images/ppm/PPM_water_PPM_100.png" alt="PPM" />
+  <p><img src="/assets/images/PPM/PPM_water_PPM_100.png" alt="PPM" />
 <em>Progressive photon mapping after 100 iterations</em></p>
 
 </div>
