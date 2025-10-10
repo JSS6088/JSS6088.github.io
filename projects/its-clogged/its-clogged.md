@@ -27,6 +27,6 @@ As the technical artist, I created various shaders for the game's visual, all wr
 *Inverted Hull Outline Shader*](/projects/its-clogged/invertedhull-highlight-shader.html)
 
 [![Real-time Water Simulation with SPH ](/assets/images/placeholder-image.png)
-*Real-time Water Simulation with SPH*](/projects/its-clogged.html)
+*Real-time Water Simulation with SPH*](/projects/its-clogged/sph.html)
 
 </div>
