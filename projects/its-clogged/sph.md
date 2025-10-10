@@ -13,16 +13,33 @@ Therefore, I improved the simulation algorithm through using **GPU compute shade
 
 
 # Breakdown
-The main algorithm for SPH involves updating density, pressure force, and viscosity force values for each particle, which relies on reading values from **neighboring particles** in the last time step. However, a naive search for looping over all particles gives us only **𝑂(𝑛) efficiency**, which is too slow for real-time simulations. Therefore, it becomes necessary to implement a **fast neighborhood search algorithm**.
+In SPH, updating each particle’s density, pressure, and viscosity forces requires **accessing all neighboring particles within the kernel radius**. A naive 𝑂(𝑛) loop over all particles is computationally prohibitive for real-time simulations, so an efficient **spatial acceleration structure** is required.
 
-## Neighborhood search
+To achieve this, I divided the simulation domain into a uniform grid, where each cell’s width equals the kernel radius. Each particle is mapped to its corresponding grid cell, meaning only particles in adjacent cells need to be checked for interactions.
 
+Each cell coordinate is then converted into a hash value using **Morton encoding (Z-order curve)**. This spatially coherent mapping ensures that nearby cells are also close in memory, improving **spatial locality** and overall performance.
 
-## GPU radix sort
+After assigning hash values, the particle array is sorted by hash, grouping particles belonging to the same cell contiguously in memory. I then compute an **offset array**, mapping each cell’s hash to the starting index of its particles in the array.
 
+During simulation, the neighbor search becomes highly efficient:
+- For each particle, I compute its cell hash.
+- I use the offset array to quickly locate the start indices of particles in neighboring cells.
 
-## Scale to 3D
+</div>
 
+<div class="two-column" markdown="1">
+
+![SPH Algorithm](/assets/images/ItsClogged/SPH-Algorithm.png)
+*SPH Main Algorithm*
+
+![SPH Update hash table](/assets/images/ItsClogged/SPH-Update%20hash%20table.png)
+*SPH Update Hash Table*
+
+</div>
+
+<div class="one-column" markdown="1">
+
+This reduces the complexity of neighborhood queries to **O(1)** with a constant factor, enabling real-time SPH simulations even for tens of thousands of particles.
 
 
 </div>
