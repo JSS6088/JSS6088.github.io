@@ -17,7 +17,7 @@ I work on environment art, tech art, and rendering. Explore my work across:
 
 <div class="video-container">
   <iframe
-    src="https://www.youtube.com/embed/64wH8uzffn4?autoplay=1&mute=1&loop=1&playlist=64wH8uzffn4&controls=0&playsinline=1"
+    src="https://www.youtube.com/embed/64wH8uzffn4?autoplay=1&mute=0&loop=1&playlist=64wH8uzffn4&controls=0&playsinline=1"
     frameborder="0"
     allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
