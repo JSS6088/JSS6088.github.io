@@ -11,7 +11,7 @@ This section showcases my work in shaders, tools, and optimizations.
 
 </div>
 
-<div class="two-column" markdown="1">
+<div class="one-column" markdown="1">
 
 [![A Gentlemen's Dispute](/assets/images/AGD/AGD_thumbnail.png)
 *A Gentlemen's Dispute - A chaotic party brawler!*](/projects/agd/a-gentlemens-dispute.html#tech-art)

@@ -19,9 +19,9 @@ kramdown:
 navigation:
   - name: Home
     link: /
-  - name: 3D Art
-    link: /3d-art.html
   - name: Tech Art
     link: /tech-art.html
   - name: Computer Graphics
     link: /computer-graphics.html
+  - name: 3D Art
+    link: /3d-art.html
