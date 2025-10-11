@@ -11,7 +11,7 @@ _Its Clogged_ is a game where you play as a hotel janitor cleaning various bathr
 
 ## Technical Art {#tech-art}
 
-As the technical artist, I created various shaders for the game's visual, all written in **Unity HLSL and C#**.
+As the technical artist, I created various shaders for the game's visual in **Unity HLSL and C#**. I also optimized a water simulation algorithm using **GPU compute shaders** to allow for real-time simulation of over 60k particles. 
 
 </div>
 
@@ -26,7 +26,7 @@ As the technical artist, I created various shaders for the game's visual, all wr
 [![Inverted Hull Outline Shader](/assets/images/ItsClogged/OutlineInvertedHull_render.png)
 *Inverted Hull Outline Shader*](/projects/its-clogged/invertedhull-highlight-shader.html)
 
-[![Real-time Water Simulation with SPH ](/assets/images/placeholder-image.png)
-*Real-time Water Simulation with SPH*](/projects/its-clogged/sph.html)
+[![Optimizing Real-time Water Simulation](/assets/images/ItsClogged/SPH-water%20particle%20simulation.png)
+*Optimizing Real-time Water Simulation*](/projects/its-clogged/sph.html)
 
 </div>

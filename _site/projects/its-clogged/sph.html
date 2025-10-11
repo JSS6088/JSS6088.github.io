@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <!-- HEADER -->
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=28161b87f9a8de789c8348951b9ab5f5d480601b">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Optimizing Real-time Water Simulation | Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Optimizing Real-time Water Simulation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A showcase of my tech art and rendering projects" />
+<meta property="og:description" content="A showcase of my tech art and rendering projects" />
+<link rel="canonical" href="http://localhost:4000/projects/its-clogged/sph.html" />
+<meta property="og:url" content="http://localhost:4000/projects/its-clogged/sph.html" />
+<meta property="og:site_name" content="Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Optimizing Real-time Water Simulation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A showcase of my tech art and rendering projects","headline":"Optimizing Real-time Water Simulation","url":"http://localhost:4000/projects/its-clogged/sph.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+    <span class="site-title">Jason Jiang</span>
+
+    <div class="social-icons">
+      <a href="mailto:yunfeng2@andrew.cmu.edu" title="Email">
+        <img src="/assets/images/Contacts/gmail.svg" alt="Email" class="icon-btn">
+      </a>
+      <a href="https://www.linkedin.com/in/yunfengjiang" target="_blank" rel="noopener" title="LinkedIn">
+        <img src="/assets/images/Contacts/linkedin.svg" alt="LinkedIn" class="icon-btn">
+      </a>
+    </div>
+  
+    
+      <a href="/" 
+         class="nav-link">
+        Home
+      </a>
+    
+      <a href="/3d-art.html" 
+         class="nav-link">
+        3D Art
+      </a>
+    
+      <a href="/tech-art.html" 
+         class="nav-link">
+        Tech Art
+      </a>
+    
+      <a href="/computer-graphics.html" 
+         class="nav-link">
+        Computer Graphics
+      </a>
+    
+  
+</nav>
+    
+    
+    <div id="header_wrap" class="outer"></div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <div class="one-column">
+
+  <h1 id="real-time-water-simulation-with-sph">Real-time Water Simulation with SPH</h1>
+
+  <p>For our game, we wanted to add <strong>physically simulated water</strong> for bathtubs and toliets in <strong>real time</strong>. We chose to use <strong>Smoothed Particle Hydrodynamics</strong> which approximates water as lots of particles. By the time I joined the project, we had a working solution but it was very unopimitzed, causing low frame rates each time the water runs even with around <strong>1000 particles</strong>. If we turn down the number of particles, the simulation results get worse very quickly.</p>
+
+  <p>Therefore, I improved the simulation algorithm through using <strong>GPU compute shaders</strong>, allowing to simulate more than <strong>60k water particles</strong> in real time.</p>
+
+  <h2 id="d-version-60k-water-particles">2D Version (60k water particles)</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/eLKjom370AY?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;playlist=eLKjom370AY&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+
+  <h2 id="d-version-10k-water-particles">3D Version (10k water particles)</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/0obHYRuh6r8?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;playlist=0obHYRuh6r8&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+  <p><em>Credits to Luka who wrote the marching cube algorithm that turns water particles into 3D meshes</em></p>
+
+  <h1 id="breakdown">Breakdown</h1>
+  <p>In SPH, updating each particle’s density, pressure, and viscosity forces requires <strong>accessing all neighboring particles within the kernel radius</strong>. A naive 𝑂(𝑛) loop over all particles is computationally prohibitive for real-time simulations, so an efficient <strong>spatial acceleration structure</strong> is required.</p>
+
+  <p>To achieve this, I divided the simulation domain into a uniform grid, where each cell’s width equals the kernel radius. Each particle is mapped to its corresponding grid cell, meaning only particles in adjacent cells need to be checked for interactions.</p>
+
+  <p>Each cell coordinate is then converted into a hash value using <strong>Morton encoding (Z-order curve)</strong>. This spatially coherent mapping ensures that nearby cells are also close in memory, improving <strong>spatial locality</strong> and overall performance.</p>
+
+</div>
+
+<div class="two-column">
+
+  <p><img src="/assets/images/ItsClogged/SPH-z-order%20indexing.png" alt="SPH Z order indexing" />
+<em>The Z-indexing curve that orders elements according to spatial distance from <a href="https://en.wikipedia.org/wiki/Z-order_curve">wikipedia</a></em></p>
+
+  <p><img src="/assets/images/ItsClogged/SPH-z-order%20indexing2.png" alt="SPH Z order indexing 2" /></p>
+
+</div>
+
+<div class="one-column">
+
+  <p>After assigning hash values, the particle array is sorted by hash, grouping particles belonging to the same cell contiguously in memory. I then compute an <strong>offset array</strong>, mapping each cell’s hash to the starting index of its particles in the array.</p>
+
+  <p>For sorting algorithm, I chose <strong>radix sort</strong> because I know the range of hash values, which makes the efficiency O(𝑛). It is also highly parallizable. Therefore, I can utilize compute shaders to sort the particle array.
+I implemented the algorithm based on <a href="https://gpuopen.com/download/Introduction_to_GPU_Radix_Sort.pdf">this paper</a> by AMD.</p>
+
+  <p>During simulation, the neighbor search becomes highly efficient:</p>
+  <ul>
+    <li>For each particle, I compute its cell hash.</li>
+    <li>I use the offset array to quickly locate the start indices of particles in neighboring cells.</li>
+  </ul>
+
+  <p>This reduces the complexity of neighborhood queries to <strong>O(1)</strong> with a constant factor, enabling real-time SPH simulations even for tens of thousands of particles.</p>
+
+  <h1 id="pseudocode">Pseudocode</h1>
+
+</div>
+
+<div class="two-column">
+
+  <p><img src="/assets/images/ItsClogged/SPH-Algorithm.png" alt="SPH Main" /></p>
+
+  <p><img src="/assets/images/ItsClogged/SPH-Update%20hash%20table.png" alt="SPH Update hash table" /></p>
+
+</div>
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Portfolio maintained by <a href="https://github.com/JSS6088">JSS6088</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
