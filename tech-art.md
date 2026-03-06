@@ -5,13 +5,16 @@ title: Tech Art
 
 <div class="one-column" markdown="1">
 
-# 🧪 Tech Art
+# Tech Art
 
 This section showcases my work in shaders, tools, and optimizations.
 
 </div>
 
-<div class="one-column" markdown="1">
+<div class="two-column" markdown="1">
+
+[![PCG Gallery](/assets/images/PCGGallery/PCGGallery_thumbnail.png)
+*PCG Gallery - Creating a procedural gallery (WIP)*](/projects/pcg-gallery/pcg-gallery.html#tech-art)
 
 [![A Gentlemen's Dispute](/assets/images/AGD/AGD_thumbnail.png)
 *A Gentlemen's Dispute - A chaotic party brawler!*](/projects/agd/a-gentlemens-dispute.html#tech-art)

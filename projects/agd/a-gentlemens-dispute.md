@@ -22,17 +22,8 @@ My workflow starts in **Blender**, where I model and UV assets. I then bake obje
 [![Garden](/assets/images/AGD/AGD_garden.png)
 *Garden*](/projects/agd/garden.html)
 
-[![Banquet Hall](/assets/images/AGD/AGD_banquethall.png)
-*Banquet Hall*](/projects/agd/banquet-hall.html)
-
 [![Island](/assets/images/AGD/AGD_island.png)
 *Island*](/projects/agd/island.html)
-
-[![Pancake Palace](/assets/images/AGD/AGD_pancakepalace.png)
-*Pancake Palace*](/projects/agd/pancake-palace.html)
-
-[![Metro](/assets/images/AGD/AGD_metro.png)
-*Metro*](/projects/agd/metro.html)
 
 [![The Blast Furnace](/assets/images/AGD/AGD_factory.png)
 *The Blast Furnace*](/projects/agd/the-blast-furnace.html)

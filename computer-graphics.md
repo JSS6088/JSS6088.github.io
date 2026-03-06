@@ -5,13 +5,13 @@ title: Computer Graphics
 
 <div class="one-column" markdown="1">
 
-# 💡 Computer Graphics
+# Computer Graphics
 
 Projects focused on rendering algorithms and graphics research.
 
 </div>
 
-<div class="one-column" markdown="1">
+<div class="two-column" markdown="1">
 
 [![Scotty3D](/assets/images/Scotty3D/Scotty3D_AGD.png)
 *Scotty3D - Implement a graphics package*](/projects/scotty3d/scotty3d.html)
