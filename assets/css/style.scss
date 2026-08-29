@@ -138,3 +138,17 @@ a > em {
   opacity: 1;
   transform: scale(1.1);
 }
+
+/* Keep images inside table cells from overflowing (theme sets img max-width: 739px) */
+td img,
+th img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Let wide tables scroll instead of breaking the page on narrow screens */
+table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}

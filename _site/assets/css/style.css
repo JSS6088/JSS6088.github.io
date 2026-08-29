@@ -299,3 +299,9 @@ a > em { display: block; text-align: center; color: #222; font-size: 1.25em; mar
 .icon-btn { width: 36px; height: 36px; opacity: 0.8; transition: opacity 0.2s ease, transform 0.2s ease; border: none !important; outline: none !important; background: transparent !important; box-shadow: none !important; }
 
 .icon-btn:hover { opacity: 1; transform: scale(1.1); }
+
+/* Keep images inside table cells from overflowing (theme sets img max-width: 739px) */
+td img, th img { max-width: 100%; height: auto; }
+
+/* Let wide tables scroll instead of breaking the page on narrow screens */
+table { display: block; overflow-x: auto; max-width: 100%; }

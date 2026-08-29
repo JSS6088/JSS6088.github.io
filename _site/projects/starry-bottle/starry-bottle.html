@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <!-- HEADER -->
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=ce82eb4b49d162d71b01aad02422a2077411d79d">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Starry Bottle | Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Starry Bottle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A showcase of my tech art and rendering projects" />
+<meta property="og:description" content="A showcase of my tech art and rendering projects" />
+<meta property="og:site_name" content="Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Starry Bottle" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A showcase of my tech art and rendering projects","headline":"Starry Bottle","url":"/projects/starry-bottle/starry-bottle.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+    <span class="site-title">Jason Jiang</span>
+
+    <div class="social-icons">
+      <a href="mailto:yunfeng2@andrew.cmu.edu" title="Email">
+        <img src="/assets/images/Contacts/gmail.svg" alt="Email" class="icon-btn">
+      </a>
+      <a href="https://www.linkedin.com/in/yunfengjiang" target="_blank" rel="noopener" title="LinkedIn">
+        <img src="/assets/images/Contacts/linkedin.svg" alt="LinkedIn" class="icon-btn">
+      </a>
+    </div>
+  
+    
+      <a href="/" 
+         class="nav-link">
+        Home
+      </a>
+    
+      <a href="/tech-art.html" 
+         class="nav-link">
+        Tech Art
+      </a>
+    
+      <a href="/computer-graphics.html" 
+         class="nav-link">
+        Computer Graphics
+      </a>
+    
+      <a href="/3d-art.html" 
+         class="nav-link">
+        3D Art
+      </a>
+    
+  
+</nav>
+    
+    
+    <div id="header_wrap" class="outer"></div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <div class="one-column">
+
+  <h1 id="starry-bottle">Starry Bottle</h1>
+
+  <p><em>Starry Bottle</em> is a real-time shader that renders glitter suspended <strong>inside</strong> a liquid, rather than sitting on a surface. The flakes tumble, catch the light at different angles, and sit at different depths in the bottle, so the liquid reads as having real volume instead of a printed texture.</p>
+
+  <!-- ============================================================
+     OPTIONAL: internship context. Delete this block to remove it.
+     TODO: fill in the bracketed details before publishing.
+     ============================================================ -->
+  <p>I built this during my internship at <strong>Tencent</strong>, on [team / product]. The brief was [what the team needed — e.g. a signature look for an in-game collectible]. The reference was [what you were matching — e.g. real glitter-filled cosmetics and drink bottles], and the constraint that shaped every decision below was [e.g. it had to run on mid-range mobile, so no transparency sorting and no extra render passes]. Getting there took [n] iterations; the version below is what shipped.
+<!-- ===================== END optional block ===================== --></p>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=VIDEO_ID&amp;controls=0&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+
+  <h2 id="liquid-glitter-solution">Liquid Glitter Solution</h2>
+
+  <p>Glitter inside a liquid is considerably more complex than glitter on a conventional surface, because the flakes constantly tumble and change orientation in the water, and they carry the volumetric feel of the liquid itself.</p>
+
+  <h3 id="how-it-works">How it works</h3>
+
+  <p>The sense of volume is built from <strong>two stacked parallax layers</strong>. Each layer is computed identically; two variations between them create the impression of “suspended particles with real thickness inside a liquid”:</p>
+
+  <ul>
+    <li><strong>Multi-layer parallax</strong> — each layer offsets its sampling coordinates along the view direction by its own <code class="language-plaintext highlighter-rouge">depth</code> level. The layers are staggered, which produces parallax, which reads as depth.</li>
+    <li><strong>Water absorption</strong> — deeper layers accumulate more water-colour attenuation (a Beer–Lambert approach), so the lower layer is darker and more heavily tinted. The result is a translucent volume: bright at the edges, dark through the core.</li>
+  </ul>
+
+  <h2 id="textures">Textures</h2>
+
+  <p>Each layer samples two textures.</p>
+
+  <h3 id="glitter-normal-map">Glitter normal map</h3>
+
+</div>
+
+<div class="two-column">
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Glitter normal map" />
+<em>RGB — random world-space normals</em></p>
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Glitter normal alpha" />
+<em>A — the mask defining flake shape and coverage</em></p>
+
+</div>
+
+<div class="one-column">
+
+  <p>The RGB channels store <strong>random world-space normals</strong>, which guarantees the flake distribution is completely random. The map can be generated by <strong>uniformly sampling directions on a sphere</strong>.</p>
+
+  <p>Using tangent space instead would make the flakes feel pasted onto the surface, because a tangent-space normal distribution follows the surface normal rather than being genuinely random. The normals can also be <strong>rotated dynamically</strong> to simulate particles tumbling in the water, which is what produces the twinkle.</p>
+
+  <p>The alpha channel carries the mask that defines each flake’s shape and coverage.</p>
+
+</div>
+
+<div class="two-column">
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Normal map layer preview" />
+<em>Per-layer preview: the random normals</em></p>
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Alpha mask layer preview" />
+<em>Per-layer preview: the flake mask</em></p>
+
+</div>
+
+<div class="one-column">
+
+  <h3 id="per-flake-randomisation-mask">Per-flake randomisation mask</h3>
+
+</div>
+
+<div class="three-column">
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Offset channel" />
+<em>R = offset — a random value per flake, used to sample the LUT so every flake picks up a different colour</em></p>
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Depth channel" />
+<em>G = depth — a random value per flake, used to fine-tune its depth within the layer</em></p>
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Gradient channel" />
+<em>B = gradient — a gradient that subtly modulates brightness inside each flake</em></p>
+
+</div>
+
+<div class="one-column">
+
+  <blockquote>
+    <p>The random normals and the random <code class="language-plaintext highlighter-rouge">offset</code> / <code class="language-plaintext highlighter-rouge">depth</code> values are three <strong>decoupled</strong> sources of randomness, which keeps both the spatial distribution and the colour distribution of the flakes irregular.</p>
+
+    <p>Note also that every texture except the mask <strong>bleeds past the flake edges</strong>. This prevents edge pixels from blending with the background colour during sampling, which would otherwise produce incorrect results.</p>
+  </blockquote>
+
+  <h2 id="flake-brightness">Flake brightness</h2>
+
+  <p>The flakes are shaded much like the earlier <em>view-offset + virtual lens light + laser glitter</em> approach:</p>
+
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">brightness</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span> <span class="n">saturate</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">H</span><span class="p">))),</span> <span class="n">specPow</span> <span class="p">);</span>
+</code></pre></div>  </div>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">H</code> is the half vector between the view direction <code class="language-plaintext highlighter-rouge">V</code> and the main light <code class="language-plaintext highlighter-rouge">L</code>; <code class="language-plaintext highlighter-rouge">N</code> is the random world-space normal sampled from the texture. The <code class="language-plaintext highlighter-rouge">abs</code> prevents a negative dot product from producing large black regions.</li>
+    <li>The moment the camera or the main light moves, <code class="language-plaintext highlighter-rouge">dot(N, H)</code> changes, so flake positions and brightness jump — and that is the twinkle.</li>
+    <li><code class="language-plaintext highlighter-rouge">specPow</code> controls flake density: the higher the <code class="language-plaintext highlighter-rouge">specPow</code>, the fewer flakes appear.</li>
+  </ul>
+
+  <p>Looking closely, flake brightness is <strong>tiered</strong> rather than continuous.</p>
+
+  <p><img src="/assets/images/placeholder-image.png" alt="Flake brightness distribution" />
+<em>Distribution of flake brightness across the three tiers</em></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tier</th>
+        <th>Share</th>
+        <th>Brightness / colour</th>
+        <th>LUT</th>
+        <th>Flake setup</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Strong</strong></td>
+        <td>~10%</td>
+        <td>Very bright, iridescent</td>
+        <td>Rainbow LUT</td>
+        <td>High <code class="language-plaintext highlighter-rouge">specPow</code></td>
+      </tr>
+      <tr>
+        <td><strong>Dim</strong></td>
+        <td>~40%</td>
+        <td>Darker, almost colourless</td>
+        <td>Rainbow LUT, desaturated</td>
+        <td>Low <code class="language-plaintext highlighter-rouge">specPow</code></td>
+      </tr>
+      <tr>
+        <td><strong>None</strong></td>
+        <td>~50%</td>
+        <td>Non-emissive, the glitter’s own base colour</td>
+        <td>Base-colour LUT</td>
+        <td>Everything that is neither strong nor dim</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="result">Result</h2>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=VIDEO_ID&amp;controls=0&amp;playsinline=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  </div>
+
+</div>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Portfolio maintained by <a href="https://github.com/JSS6088">JSS6088</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
