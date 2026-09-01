@@ -13,6 +13,9 @@ This section showcases my work in shaders, tools, and optimizations.
 
 <div class="two-column" markdown="1">
 
+[![Starry Bottle](/assets/images/StarryBottle/StarryBottle_thumbnail.png)
+*Starry Bottle - Glitter suspended inside a liquid*](/projects/starry-bottle/starry-bottle.html)
+
 [![PCG Gallery](/assets/images/PCGGallery/PCGGallery_thumbnail.png)
 *PCG Gallery - Creating a procedural gallery (WIP)*](/projects/pcg-gallery/pcg-gallery.html#tech-art)
 
@@ -24,8 +27,5 @@ This section showcases my work in shaders, tools, and optimizations.
 
 [![Blossom Shanghai](/assets/images/BlossomShanghai/BlossomShanghai_thumbnail.png)
 *Blossom Shanghai - Recreating Shanghai in 1990s*](/projects/blossom-shanghai/blossom-shanghai.html)
-
-[![Starry Bottle](/assets/images/StarryBottle/StarryBottle_thumbnail.png)
-*Starry Bottle - Glitter suspended inside a liquid*](/projects/starry-bottle/starry-bottle.html)
 
 </div>
