@@ -9,34 +9,34 @@ title: Starry Bottle
 
 _Starry Bottle_ is a real-time shader that renders glitter suspended **inside** a liquid, rather than sitting on a surface. The flakes tumble, catch the light at different angles, and sit at different depths in the bottle, so the liquid reads as having real volume instead of a printed texture.
 
-<!-- ============================================================
-     OPTIONAL: internship context. Delete this block to remove it.
-     TODO: fill in the bracketed details before publishing.
-     ============================================================ -->
-I built this during my internship at **Tencent**, on [team / product]. The brief was [what the team needed — e.g. a signature look for an in-game collectible]. The reference was [what you were matching — e.g. real glitter-filled cosmetics and drink bottles], and the constraint that shaped every decision below was [e.g. it had to run on mid-range mobile, so no transparency sorting and no extra render passes]. Getting there took [n] iterations; the version below is what shipped.
-<!-- ===================== END optional block ===================== -->
+I built this as a **technical art intern** at **Tencent**. My mentor let me choose which visual effect to take on, and I picked this one deliberately. Glitter is a well-studied problem, but the work I could find treats it as a *surface* property — car paint, cosmetics, fabric. Suspending it inside a liquid changes the problem: the flakes now need depth, tumbling motion, and the liquid's own absorption. That gap is what made it worth doing.
 
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&playsinline=1"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+<div class="video-container no-ui">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="/assets/videos/StarryBottle/StarryBottle_RoundTable.jpg">
+    <source src="/assets/videos/StarryBottle/StarryBottle_RoundTable.mp4" type="video/mp4">
+  </video>
 </div>
 
-## Liquid Glitter Solution
+## Breakdown
 
 Glitter inside a liquid is considerably more complex than glitter on a conventional surface, because the flakes constantly tumble and change orientation in the water, and they carry the volumetric feel of the liquid itself.
+
+<div class="video-container no-ui">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="/assets/videos/StarryBottle/StarryBottle_Reference.jpg">
+    <source src="/assets/videos/StarryBottle/StarryBottle_Reference.mp4" type="video/mp4">
+  </video>
+</div>
 
 ### How it works
 
 The sense of volume is built from **two stacked parallax layers**. Each layer is computed identically; two variations between them create the impression of "suspended particles with real thickness inside a liquid":
 
 - **Multi-layer parallax** — each layer offsets its sampling coordinates along the view direction by its own `depth` level. The layers are staggered, which produces parallax, which reads as depth.
-- **Water absorption** — deeper layers accumulate more water-colour attenuation (a Beer–Lambert approach), so the lower layer is darker and more heavily tinted. The result is a translucent volume: bright at the edges, dark through the core.
+- **Water absorption** — deeper layers accumulate more water-color attenuation (a Beer–Lambert approach), so the lower layer is darker and more heavily tinted. The result is a translucent volume: bright at the edges, dark through the core.
 
-## Textures
+### Textures
 
 Each layer samples two textures.
 
@@ -46,10 +46,10 @@ Each layer samples two textures.
 
 <div class="two-column" markdown="1">
 
-![Glitter normal map](/assets/images/placeholder-image.png)
+![Glitter normal map](/assets/images/StarryBottle/StarryBottle_Glitter_normal_rgb.png)
 *RGB — random world-space normals*
 
-![Glitter normal alpha](/assets/images/placeholder-image.png)
+![Glitter normal alpha](/assets/images/StarryBottle/StarryBottle_Glitter_normal_alpha.png)
 *A — the mask defining flake shape and coverage*
 
 </div>
@@ -64,73 +64,138 @@ The alpha channel carries the mask that defines each flake's shape and coverage.
 
 </div>
 
-<div class="two-column" markdown="1">
-
-![Normal map layer preview](/assets/images/placeholder-image.png)
-*Per-layer preview: the random normals*
-
-![Alpha mask layer preview](/assets/images/placeholder-image.png)
-*Per-layer preview: the flake mask*
-
-</div>
-
 <div class="one-column" markdown="1">
 
-### Per-flake randomisation mask
+### Per-flake randomization mask
 
 </div>
 
 <div class="three-column" markdown="1">
 
-![Offset channel](/assets/images/placeholder-image.png)
-*R = offset — a random value per flake, used to sample the LUT so every flake picks up a different colour*
+![Offset channel](/assets/images/StarryBottle/StarryBottle_Glitter_EMask_offset.png)
+*R = offset — a random value per flake, used to sample the LUT so every flake picks up a different color*
 
-![Depth channel](/assets/images/placeholder-image.png)
+![Depth channel](/assets/images/StarryBottle/StarryBottle_Glitter_EMask_depth.png)
 *G = depth — a random value per flake, used to fine-tune its depth within the layer*
 
-![Gradient channel](/assets/images/placeholder-image.png)
+![Gradient channel](/assets/images/StarryBottle/StarryBottle_Glitter_EMask_gradient.png)
 *B = gradient — a gradient that subtly modulates brightness inside each flake*
 
 </div>
 
 <div class="one-column" markdown="1">
 
-> The random normals and the random `offset` / `depth` values are three **decoupled** sources of randomness, which keeps both the spatial distribution and the colour distribution of the flakes irregular.
+> The random normals and the random `offset` / `depth` values are three **decoupled** sources of randomness, which keeps both the spatial distribution and the color distribution of the flakes irregular.
 >
-> Note also that every texture except the mask **bleeds past the flake edges**. This prevents edge pixels from blending with the background colour during sampling, which would otherwise produce incorrect results.
+> Note also that every texture except the mask **bleeds past the flake edges**. This prevents edge pixels from blending with the background color during sampling, which would otherwise produce incorrect results.
 
-## Flake brightness
+## Glitter brightness
 
-The flakes are shaded much like the earlier *view-offset + virtual lens light + laser glitter* approach:
+The lighting is an ordinary **Blinn-Phong specular** term. What makes it read as glitter is the normal it is fed: instead of the surface normal, each flake uses a **random world-space normal** sampled from the texture, so neighboring flakes catch the highlight at completely unrelated angles.
 
 ```cpp
-brightness = pow( saturate(abs(dot(N, H))), specPow );
+float brightness = pow(saturate(abs(dot(N, H))), specPow);
 ```
 
-- `H` is the half vector between the view direction `V` and the main light `L`; `N` is the random world-space normal sampled from the texture. The `abs` prevents a negative dot product from producing large black regions.
-- The moment the camera or the main light moves, `dot(N, H)` changes, so flake positions and brightness jump — and that is the twinkle.
-- `specPow` controls flake density: the higher the `specPow`, the fewer flakes appear.
+- `H` is the standard Blinn-Phong half vector, between the view direction `V` and the main light `L`. The only departure from the textbook form is the `abs`, which stops a negative dot product from crushing large regions to black once the normals are pointing in arbitrary directions.
+- The moment the camera or the main light moves, `dot(N, H)` changes, so flake positions and brightness jump — and that is the sparkle.
+- `specPow` is the specular exponent, and here it doubles as a **density** control: a tighter highlight means fewer normals fall inside it, so the higher the `specPow`, the fewer flakes appear.
 
 Looking closely, flake brightness is **tiered** rather than continuous.
 
-![Flake brightness distribution](/assets/images/placeholder-image.png)
+<div class="figure-portrait" markdown="1">
+
+![Flake brightness distribution](/assets/images/StarryBottle/StarryBottle_Glitter_Tier.png)
 *Distribution of flake brightness across the three tiers*
 
-| Tier | Share | Brightness / colour | LUT | Flake setup |
-| --- | --- | --- | --- | --- |
-| **Strong** | ~10% | Very bright, iridescent | Rainbow LUT | High `specPow` |
-| **Dim** | ~40% | Darker, almost colourless | Rainbow LUT, desaturated | Low `specPow` |
-| **None** | ~50% | Non-emissive, the glitter's own base colour | Base-colour LUT | Everything that is neither strong nor dim |
-
-## Result
-
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&playsinline=1"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
 </div>
+
+| Tier | Share | Brightness / color | LUT | Flake setup |
+| --- | --- | --- | --- | --- |
+| **Strong** | ~10% | Very bright, iridescent | `sparkleLUT` | High `specPow` |
+| **Dim** | ~40% | Darker, almost colorless | `sparkleLUT`, desaturated | Low `specPow` |
+| **None** | ~50% | Non-emissive, the glitter's own base color | `bgLUT` | Everything that is neither strong nor dim |
+
+## Glitter color
+
+Brightness alone would give a field of white sparkles. The color comes from the `offset` value in the mask's R channel — the per-flake random number described above. That value is used directly as a **UV coordinate into a color LUT**, so each flake reads a different point along the ramp and therefore a different color.
+
+```cpp
+// offset is the per-flake random value sampled from the EMask R channel
+float2 lutUV = float2(offset, 0.5);
+float3 flakeColor = Texture2DSample(ColorLUT, ColorLUTSampler, lutUV).rgb;
+```
+
+Because the `offset` values are random and decoupled from the normals, neighboring flakes land on unrelated parts of the ramp, so the color distribution ends up as irregular as the spatial one.
+
+</div>
+
+<div class="two-column" markdown="1">
+
+![Sparkle LUT](/assets/images/StarryBottle/StarryBottle_sparkleLUT_strip.png)
+*`sparkleLUT` — the spectral ramp the lit flakes sample, running blue through green to red*
+
+![Background LUT](/assets/images/StarryBottle/StarryBottle_bgLUT_strip.png)
+*`bgLUT` — the muted rose-to-lilac ramp for flakes that stay unlit*
+
+</div>
+
+<div class="one-column" markdown="1">
+
+The reason for going through a LUT rather than computing a color procedurally is **artistic control**. The palette lives in a texture, so an artist can redraw the ramp and change the entire look of the glitter without touching a line of shader code — swapping an iridescent rainbow for a warm gold, tightening the hue range, or desaturating the whole set. 
+
+## Motion
+
+Everything up to this point is static. The flakes sit wherever the textures place them, and only the lighting changes as the camera moves. The last piece was making the bottle's own movement move the glitter inside it.
+
+The whole system is **pure Blueprint**. Blueprint tracks the bottle's orientation, integrates a displacement for the glitter, and hands the material a single `motionOffset` vector, which is added to the sampling coordinates of both parallax layers. There is no simulation in the shader and no per-flake state anywhere — however the motion is computed, it reaches the material as two floats.
+
+I built a small demo that lets me rotate the bottle and watch the flakes respond, and used it to try two different characters of motion.
+
+</div>
+
+<div class="two-column" markdown="1">
+
+<div class="video-figure" markdown="1">
+<div class="video-container no-ui">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="/assets/videos/StarryBottle/StarryBottle_Jelly.jpg">
+    <source src="/assets/videos/StarryBottle/StarryBottle_Jelly.mp4" type="video/mp4">
+  </video>
+</div>
+*Jelly — the flakes drift with the tilt, then settle back to where they started*
+</div>
+
+<div class="video-figure" markdown="1">
+<div class="video-container no-ui">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="/assets/videos/StarryBottle/StarryBottle_Liquid.jpg">
+    <source src="/assets/videos/StarryBottle/StarryBottle_Liquid.mp4" type="video/mp4">
+  </video>
+</div>
+*Liquid — the flakes keep whatever position they are pushed to and never return*
+</div>
+
+</div>
+
+<div class="one-column" markdown="1">
+
+The material is identical in both. The whole difference is in how Blueprint drives `motionOffset` over time.
+
+### Reading the bottle
+
+Both models start from the same measurement. Each frame the bottle's rotation is converted to a quaternion and multiplied by the inverse of the previous frame's, which gives the **delta rotation**. Decomposing that into an axis and an angle gives an angular speed, and the cross product of the bottle's up vector with the rotation axis gives the direction the liquid is being dragged.
+
+### Jelly
+
+The first version treats the glitter as if it were held in place elastically: a **spring model**, where the offset is pulled back toward its rest position. Tilt the bottle and the flakes lag behind, but let go and the restoring force returns them exactly where they started.
+
+### Liquid
+
+The second version drops the restoring force entirely. The offset just accumulates, and damping only slows the flakes rather than pulling them home, so wherever the motion carries them is where they stay. That one missing term is the whole difference between a thick gel and a free liquid.
+
+Both models expose the same handful of dials — rotation strength, gravity, damping, and the tilt of the liquid surface — so either character can be dialed in without touching the material.
+
+Because this was exploratory work rather than a feature with a target, I handed over both rather than picking one. They suggest different contents: the jelly version reads as a thicker, more viscous medium, while the liquid version reads as thinner, with the flakes more freely suspended.
 
 </div>

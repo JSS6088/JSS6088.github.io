@@ -1,0 +1,12 @@
+# Jekyll build output - GitHub Pages regenerates this server-side
+_site/
+.jekyll-cache/
+.sass-cache/
+
+# macOS
+.DS_Store
+
+# Raw capture sources - the web encodes in assets/videos/ are what ship
+assets/images/**/*.mp4
+assets/images/**/*.tga
+assets/images/**/*.TGA

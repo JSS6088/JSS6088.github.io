@@ -25,7 +25,10 @@ This section showcases my work in shaders, tools, and optimizations.
 [![Blossom Shanghai](/assets/images/BlossomShanghai/BlossomShanghai_thumbnail.png)
 *Blossom Shanghai - Recreating Shanghai in 1990s*](/projects/blossom-shanghai/blossom-shanghai.html)
 
-[![Starry Bottle](/assets/images/placeholder-image.png)
+<<<<<<< Updated upstream
+=======
+[![Starry Bottle](/assets/images/StarryBottle/StarryBottle_thumbnail.png)
 *Starry Bottle - Glitter suspended inside a liquid*](/projects/starry-bottle/starry-bottle.html)
 
+>>>>>>> Stashed changes
 </div>

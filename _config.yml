@@ -25,3 +25,17 @@ navigation:
     link: /computer-graphics.html
   - name: 3D Art
     link: /3d-art.html
+
+# Keep raw capture sources out of the build. Web encodes live in assets/videos/.
+# NOTE: setting `exclude` overrides Jekyll's defaults, so they are repeated here.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - "assets/images/**/*.mp4"
+  - "assets/images/**/*.tga"
+  - "assets/images/**/*.TGA"

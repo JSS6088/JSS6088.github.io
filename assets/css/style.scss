@@ -12,12 +12,14 @@
   margin-bottom: 2rem; 
 }
 
-.video-container iframe {
+.video-container iframe,
+.video-container video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .inner, .one-column, .two-column, .three-column {
@@ -151,4 +153,46 @@ table {
   display: block;
   overflow-x: auto;
   max-width: 100%;
+}
+
+/* Portrait figures: keep tall diagrams from filling the whole column.
+   Shrinks with the container on narrow screens. */
+.figure-portrait img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Video figures inside the column grids.
+   A .video-container dropped straight into .two-column comes out ~2x too tall
+   (417x499 rather than 417x234): its percentage bottom-padding resolves against
+   the flex CONTAINER's width, not the item's. The .video-figure wrapper is what
+   fixes that — it gives the container a block parent at the item's own width.
+   aspect-ratio then states the 16:9 intent outright instead of implying it. */
+.video-figure .video-container {
+  padding-bottom: 0;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0;
+}
+
+.two-column > .video-figure,
+.three-column > .video-figure {
+  min-width: 0;
+}
+
+.video-figure p {
+  margin-top: 0.5rem;
+}
+
+/* Silent auto-looping demo videos.
+   controls=0 only removes YouTube's progress bar - the title bar, share and
+   watch-later buttons, and the big centre transport buttons still appear on
+   hover. Blocking pointer events on the iframe stops the mouse ever reaching
+   it, so none of that chrome shows.
+   Only apply to embeds the viewer never needs to click: autoplay=1, mute=1,
+   loop=1, controls=0. Videos with autoplay=0 or controls=1 must stay clickable. */
+.video-container.no-ui iframe,
+.video-container.no-ui video {
+  pointer-events: none;
 }
