@@ -29,6 +29,8 @@ Glitter inside a liquid is considerably more complex than glitter on a conventio
   </video>
 </div>
 
+*Real life reference*
+
 ### How it works
 
 The sense of volume is built from **two stacked parallax layers**. Each layer is computed identically; two variations between them create the impression of "suspended particles with real thickness inside a liquid":
