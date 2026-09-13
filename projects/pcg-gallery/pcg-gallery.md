@@ -1,11 +1,11 @@
 ---
 layout: default
-title: PCG Gallery (WIP)
+title: PCG Gallery
 ---
 
 <div class="one-column" markdown="1">
 
-# PCG Gallery (WIP)
+# PCG Gallery
 
 As an opportunity to hone in my **Unreal Engine** and **Houdini** skills, I started to work on a tool for world artists to build a gallery space using **Unreal PCG Graph and Blueprint** The end goal is to have a infinite real-time generated gallery that resembles a liminal space when walking inside. 
 
