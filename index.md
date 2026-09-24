@@ -22,16 +22,7 @@ I'm a technical artist working on shaders, tools and real-time rendering.
 
 </div>
 
-{% assign featured = site.data.projects | where: "featured", true %}
-<div class="two-column">
-{% for p in featured %}
-  {% unless p.draft %}
-  <p><a href="{{ p.url }}"><img src="{{ p.card }}" alt="{{ p.title }}" />
-<em>{{ p.title }} - {{ p.blurb }}</em></a>
-{% if p.tags %}<span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}</p>
-  {% endunless %}
-{% endfor %}
-</div>
+{% include project-grid.html featured=true %}
 
 <div class="one-column" markdown="1">
 

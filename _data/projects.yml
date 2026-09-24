@@ -17,7 +17,6 @@
   card: /assets/images/AGD/AGD_card.jpg
   tags: [Shader, Pipeline, Unity]
   sections: [games]
-  featured: true
 
 - title: Its Clogged
   blurb: Climb up as a hotel janitor
@@ -36,6 +35,7 @@
   # card: /assets/images/AutoStroke/AutoStroke_card.jpg
   tags: [Tools, Pipeline, Shader, Blender]
   sections: [tools]
+  featured: true
 
 - title: PCG Gallery
   blurb: Creating a procedural gallery

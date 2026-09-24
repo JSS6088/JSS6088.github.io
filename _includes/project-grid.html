@@ -1,15 +1,22 @@
 {% comment %}
-Renders the project cards for one section, from _data/projects.yml.
+Renders project cards from _data/projects.yml.
 
-  {% include project-grid.html section="shaders" %}
+  {% include project-grid.html section="shaders" %}   one section's projects
+  {% include project-grid.html featured=true %}       the home page highlights
 
-Cards keep the same markup the pages used before: a linked image, an italic
-caption, then a row of tag pills. Entries marked `draft: true` are skipped.
+A card is a linked image, an italic caption, then a row of tag pills. An entry
+with no `card` image falls back to a typographic tile of the same size.
+Entries marked `draft: true` are skipped everywhere.
 {% endcomment %}
+{% if include.featured %}
+  {% assign entries = site.data.projects | where: "featured", true %}
+{% else %}
+  {% assign entries = site.data.projects %}
+{% endif %}
 <div class="two-column">
-{% for p in site.data.projects %}
+{% for p in entries %}
   {% if p.draft %}{% continue %}{% endif %}
-  {% if p.sections contains include.section %}
+  {% if include.section == nil or p.sections contains include.section %}
   <p><a href="{{ p.url }}">{% if p.card %}<img src="{{ p.card }}" alt="{{ p.title }}" />{% else %}<span class="card-blank">{{ p.title }}</span>{% endif %}
 <em>{{ p.title }} - {{ p.blurb }}</em></a>
 {% if p.tags %}<span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}</p>
