@@ -7,13 +7,13 @@ title: Painterly Texture
 
 # Painterly Texture
 
-A pipeline for giving 3D assets a hand-painted, oil-painting look that holds up under dynamic lighting. The first version, built in Substance Designer, shipped with *A Gentlemen's Dispute*. The second version, **AutoStroke**, rebuilds it as a Blender add-on.
+A pipeline for giving 3D assets a hand-painted, oil-painting look that holds up under dynamic lighting. The first version, built in Substance Designer, shipped with *A Gentlemen's Dispute*. The second version, [**AutoStroke**](/projects/autostroke/autostroke.html), rebuilds it as a Blender add-on with a live viewport preview.
 
 ## AutoStroke (v2)
 
-*v2 in active development · Last updated September 2026*
+**AutoStroke** is a **Blender** add-on that generates painterly textures without Substance Designer, running entirely in vanilla Blender, with the result updating live in the viewport as you adjust it.
 
-**AutoStroke** is a **Blender** add-on that generates painterly textures without Substance Designer, running entirely in vanilla Blender.
+[**Full writeup: AutoStroke →**](/projects/autostroke/autostroke.html)
 
 <div class="video-container">
   <iframe
@@ -24,20 +24,7 @@ A pipeline for giving 3D assets a hand-painted, oil-painting look that holds up 
   </iframe>
 </div>
 
-### Why I rebuilt it
-
-The first version held up through production on *A Gentlemen's Dispute*, but using it exposed three limits:
-
-- **It needed a license.** Substance Designer is paid software. AutoStroke runs in vanilla Blender with nothing else to install.
-- **It had redundant steps.** The Substance workflow involved steps that didn't need to be there. AutoStroke removes them.
-- **The visuals could go further.** Rebuilding the tool gave me room to push the quality of the strokes.
-
-### What's next
-
-- Improving the visual quality of the generated strokes
-<!-- TODO: add 1–2 specific next steps, and update the "Last updated" date above when you change this section -->
-
-## Where it started: v1 in *A Gentlemen's Dispute*
+## v1: the Substance Designer pipeline
 
 As the Art Director for *A Gentlemen's Dispute*, a party game featuring stylized gentlemanly characters, I drew heavy inspiration from classical oil paintings — an aesthetic closely tied to portraiture and refined society. However, in traditional paintings, lighting is static and baked into the image through painted color. In contrast, our game features dynamic lighting and animated characters, which makes preserving a consistent painterly look more challenging. Relying solely on diffuse texture maps wasn’t enough — the illusion would break as lighting conditions changed.
 
@@ -70,5 +57,7 @@ To maintain consistency between tools, I created a custom **Shader Graph** shade
     allowfullscreen>
   </iframe>
 </div>
+
+AutoStroke is where this pipeline went next — [see the current version](/projects/autostroke/autostroke.html).
 
 </div>
