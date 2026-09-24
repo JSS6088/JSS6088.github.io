@@ -217,3 +217,22 @@ table {
   line-height: 1.6;
   white-space: nowrap;
 }
+
+/* Card tile for a project that has no image yet. Matches the 16:9 shape of a
+   real card so the grid stays even, rather than leaving a gap or a broken img. */
+.card-blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin: 10px 0;
+  background: #e6e6e6;
+  border: 1px solid #d2d2d2;
+  color: #555;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}

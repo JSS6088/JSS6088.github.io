@@ -31,11 +31,11 @@
 - title: AutoStroke
   blurb: Painterly texturing with live preview
   url: /projects/autostroke/autostroke.html
-  card: /assets/images/AutoStroke/AutoStroke_card.jpg
+  # No card art yet — the grid falls back to a text tile. Add the image and
+  # uncomment this line to swap it in.
+  # card: /assets/images/AutoStroke/AutoStroke_card.jpg
   tags: [Tools, Pipeline, Shader, Blender]
   sections: [tools]
-  # Waiting on AutoStroke_card.jpg — delete this line to publish the card.
-  draft: true
 
 - title: PCG Gallery
   blurb: Creating a procedural gallery

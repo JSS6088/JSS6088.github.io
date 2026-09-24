@@ -10,7 +10,7 @@ caption, then a row of tag pills. Entries marked `draft: true` are skipped.
 {% for p in site.data.projects %}
   {% if p.draft %}{% continue %}{% endif %}
   {% if p.sections contains include.section %}
-  <p><a href="{{ p.url }}"><img src="{{ p.card }}" alt="{{ p.title }}" />
+  <p><a href="{{ p.url }}">{% if p.card %}<img src="{{ p.card }}" alt="{{ p.title }}" />{% else %}<span class="card-blank">{{ p.title }}</span>{% endif %}
 <em>{{ p.title }} - {{ p.blurb }}</em></a>
 {% if p.tags %}<span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}</p>
   {% endif %}
