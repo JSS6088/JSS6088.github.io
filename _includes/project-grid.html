@@ -1,0 +1,18 @@
+{% comment %}
+Renders the project cards for one section, from _data/projects.yml.
+
+  {% include project-grid.html section="shaders" %}
+
+Cards keep the same markup the pages used before: a linked image, an italic
+caption, then a row of tag pills. Entries marked `draft: true` are skipped.
+{% endcomment %}
+<div class="two-column">
+{% for p in site.data.projects %}
+  {% if p.draft %}{% continue %}{% endif %}
+  {% if p.sections contains include.section %}
+  <p><a href="{{ p.url }}"><img src="{{ p.card }}" alt="{{ p.title }}" />
+<em>{{ p.title }} - {{ p.blurb }}</em></a>
+{% if p.tags %}<span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}</p>
+  {% endif %}
+{% endfor %}
+</div>

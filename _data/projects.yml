@@ -1,0 +1,141 @@
+# Every project on the site, listed once.
+#
+# The Games / Tools / Shaders / Studies pages are built from this file, so a
+# project that belongs in two places is still edited in one place.
+#
+#   sections: which index pages it appears on (games, tools, shaders, studies)
+#   featured: shows in the Highlights block on the home page
+#   draft:    kept here but not rendered anywhere yet (usually waiting on art)
+#
+# Order within each section follows the order of this file.
+
+# ---------------------------------------------------------------- Games
+
+- title: A Gentlemen's Dispute
+  blurb: A chaotic party brawler
+  url: /projects/agd/a-gentlemens-dispute.html
+  card: /assets/images/AGD/AGD_card.jpg
+  tags: [Shader, Pipeline, Unity]
+  sections: [games]
+  featured: true
+
+- title: Its Clogged
+  blurb: Climb up as a hotel janitor
+  url: /projects/its-clogged/its-clogged.html
+  card: /assets/images/ItsClogged/ItsClogged_card.jpg
+  tags: [Shader, GPU Compute, Unity]
+  sections: [games]
+
+# ---------------------------------------------------------------- Tools
+
+- title: AutoStroke
+  blurb: Painterly texturing with live preview
+  url: /projects/autostroke/autostroke.html
+  card: /assets/images/AutoStroke/AutoStroke_card.jpg
+  tags: [Tools, Pipeline, Shader, Blender]
+  sections: [tools]
+  # Waiting on AutoStroke_card.jpg — delete this line to publish the card.
+  draft: true
+
+- title: PCG Gallery
+  blurb: Creating a procedural gallery
+  url: /projects/pcg-gallery/pcg-gallery.html
+  card: /assets/images/PCGGallery/PCGGallery_card.jpg
+  tags: [Tools, Procedural, Unreal, Houdini]
+  sections: [tools]
+
+- title: Painterly Texture Pipeline
+  blurb: Painterly textures that hold under dynamic lighting
+  url: /projects/agd/painterly-texture.html
+  card: /assets/images/AGD/PainterlyShader_card.jpg
+  tags: [Pipeline, Substance, Unity]
+  sections: [tools]
+
+- title: Procedural Buildings
+  blurb: Generating 1990s Shanghai facades in Houdini
+  url: /projects/blossom-shanghai/blossom-shanghai.html#procedural-building
+  card: /assets/images/BlossomShanghai/BlossomShanghai_procedural_card.jpg
+  tags: [Tools, Procedural, Houdini]
+  sections: [tools]
+
+# ---------------------------------------------------------------- Shaders
+
+- title: Starry Bottle
+  blurb: Glitter suspended inside a liquid
+  url: /projects/starry-bottle/starry-bottle.html
+  card: /assets/images/StarryBottle/StarryBottle_card.jpg
+  tags: [Shader, Blueprint, Unreal]
+  sections: [shaders]
+  featured: true
+
+- title: Möbius Shader
+  blurb: Hand-drawn hatching that wraps to the form
+  url: /projects/its-clogged/möbius-shader.html
+  card: /assets/images/ItsClogged/Mobius_card.jpg
+  tags: [Shader, HLSL, Unity]
+  sections: [shaders]
+
+- title: Real-time Water Simulation
+  blurb: 60k SPH particles on the GPU
+  url: /projects/its-clogged/sph.html
+  card: /assets/images/ItsClogged/SPH_card.jpg
+  tags: [GPU Compute, Simulation, Unity]
+  sections: [shaders]
+
+- title: Water Shader
+  blurb: Stylized water for a painterly world
+  url: /projects/agd/water-shader.html
+  card: /assets/images/AGD/WaterShader_card.jpg
+  tags: [Shader, Shader Graph, Unity]
+  sections: [shaders]
+
+- title: Foliage Shader
+  blurb: Wind and translucency on leaf cards
+  url: /projects/agd/foliage-shader.html
+  card: /assets/images/AGD/FoliageShader_card.jpg
+  tags: [Shader, Shader Graph, Unity]
+  sections: [shaders]
+
+- title: Screenspace Outline
+  blurb: Depth and normal edges for an inked look
+  url: /projects/its-clogged/screenspace-outline-shader.html
+  card: /assets/images/ItsClogged/OutlineScreenSpace_card.jpg
+  tags: [Shader, HLSL, Unity]
+  sections: [shaders]
+
+- title: Inverted Hull Highlight
+  blurb: Thick silhouettes for selected objects
+  url: /projects/its-clogged/invertedhull-highlight-shader.html
+  card: /assets/images/ItsClogged/OutlineInvertedHull_card.jpg
+  tags: [Shader, HLSL, Unity]
+  sections: [shaders]
+
+# ---------------------------------------------------------------- Studies
+
+- title: Blossom Shanghai
+  blurb: Recreating Shanghai in the 1990s
+  url: /projects/blossom-shanghai/blossom-shanghai.html
+  card: /assets/images/BlossomShanghai/BlossomShanghai_card.jpg
+  tags: [Environment, Houdini, Substance]
+  sections: [studies]
+
+- title: Scotty3D
+  blurb: Implementing a graphics package
+  url: /projects/scotty3d/scotty3d.html
+  card: /assets/images/Scotty3D/Scotty3D_card.jpg
+  tags: [Rendering, C++]
+  sections: [studies]
+
+- title: Progressive Photon Mapping
+  blurb: Caustics and global illumination
+  url: /projects/ppm/ppm.html
+  card: /assets/images/PPM/PPM_card.jpg
+  tags: [Rendering, C++]
+  sections: [studies]
+
+- title: Sony Camera
+  blurb: Hard surface modeling and texturing
+  url: /projects/camera/camera.html
+  card: /assets/images/Camera/Camera_card.jpg
+  tags: [Hard Surface, Maya, Substance]
+  sections: [studies]

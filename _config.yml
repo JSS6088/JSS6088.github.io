@@ -19,12 +19,14 @@ kramdown:
 navigation:
   - name: Home
     link: /
-  - name: Tech Art
-    link: /tech-art.html
-  - name: Computer Graphics
-    link: /computer-graphics.html
-  - name: 3D Art
-    link: /3d-art.html
+  - name: Games
+    link: /games.html
+  - name: Tools
+    link: /tools.html
+  - name: Shaders
+    link: /shaders.html
+  - name: Studies
+    link: /studies.html
 
 # Keep raw capture sources out of the build. Web encodes live in assets/videos/.
 # NOTE: setting `exclude` overrides Jekyll's defaults, so they are repeated here.
