@@ -13,13 +13,23 @@ Entries marked `draft: true` are skipped everywhere.
 {% else %}
   {% assign entries = site.data.projects %}
 {% endif %}
+{% comment %}
+On a section page the section name is already the heading, so a tag repeating
+it carries nothing — every card on /shaders.html would read "Shader". It stays
+on the home page, where there is no heading to supply it.
+{% endcomment %}
+{% case include.section %}
+  {% when 'shaders' %}{% assign redundant_tag = 'Shader' %}
+  {% when 'tools' %}{% assign redundant_tag = 'Tools' %}
+  {% else %}{% assign redundant_tag = '' %}
+{% endcase %}
 <div class="two-column">
 {% for p in entries %}
   {% if p.draft %}{% continue %}{% endif %}
   {% if include.section == nil or p.sections contains include.section %}
   <p><a href="{{ p.url }}">{% if p.card %}<img src="{{ p.card }}" alt="{{ p.title }}" />{% else %}<span class="card-blank">{{ p.title }}</span>{% endif %}
 <em>{{ p.title }} - {{ p.blurb }}</em></a>
-{% if p.tags %}<span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif %}</p>
+{% if p.tags %}<span class="tags">{% for t in p.tags %}{% unless t == redundant_tag %}<span class="tag">{{ t }}</span>{% endunless %}{% endfor %}</span>{% endif %}</p>
   {% endif %}
 {% endfor %}
 </div>
