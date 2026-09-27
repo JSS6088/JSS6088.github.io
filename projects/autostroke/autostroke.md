@@ -93,17 +93,6 @@ The panel exposes stroke count, brush size, rotation and tonal variation. The ar
 
 <div class="one-column" markdown="1">
 
-### Walkthrough
-
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/embed/2QAXQjJjKY4?autoplay=0&controls=1&playsinline=1"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-
 ## How it was built
 
 AutoStroke was built with AI assistance. I set the direction and made the calls; the implementation and the API work were delegated. The real gain was being able to test a design idea without first reading the Blender Python API end to end. The bottleneck on a tool like this was never typing — it was how fast an idea could be put in front of a mesh and judged.
