@@ -30,9 +30,7 @@
 - title: AutoStroke
   blurb: Painterly texturing with live preview
   url: /projects/autostroke/autostroke.html
-  # No card art yet — the grid falls back to a text tile. Add the image and
-  # uncomment this line to swap it in.
-  # card: /assets/images/AutoStroke/AutoStroke_card.jpg
+  card: /assets/images/AutoStroke/AutoStroke_card.jpg
   tags: [Tools, Pipeline, Shader, Blender]
   sections: [tools]
   featured: true

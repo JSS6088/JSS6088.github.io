@@ -35,8 +35,6 @@ AutoStroke runs in vanilla Blender, lets artists look-dev in the viewport, and p
 
 </div>
 
-<!-- TODO(media): assets/images/AutoStroke/AutoStroke_painterly_off.png and _on.png — uncomment the block below once rendered -->
-<!--
 <div class="two-column" markdown="1">
 
 ![Without AutoStroke](/assets/images/AutoStroke/AutoStroke_painterly_off.png)
@@ -46,7 +44,6 @@ AutoStroke runs in vanilla Blender, lets artists look-dev in the viewport, and p
 *Same mesh, one bake — no hand painting*
 
 </div>
--->
 
 <div class="one-column" markdown="1">
 
