@@ -38,7 +38,7 @@ AutoStroke runs in vanilla Blender, lets artists look-dev in the viewport, and p
 <div class="two-column" markdown="1">
 
 ![Without AutoStroke](/assets/images/AutoStroke/AutoStroke_painterly_off.png)
-*Source mesh, flat shading*
+*Source mesh*
 
 ![With AutoStroke](/assets/images/AutoStroke/AutoStroke_painterly_on.png)
 *Same mesh, one bake — no hand painting*
@@ -80,15 +80,16 @@ The panel exposes stroke count, brush size, rotation and tonal variation. The ar
 
 </div>
 
-<!-- TODO(media): assets/images/AutoStroke/AutoStroke_panel.png — uncomment the block below once captured -->
-<!--
-<div class="figure-portrait" markdown="1">
+<div class="one-column" markdown="1">
 
-![AutoStroke panel](/assets/images/AutoStroke/AutoStroke_panel.png)
-*The add-on panel, with live preview on*
+<div class="video-container">
+  <video controls muted playsinline preload="metadata"
+         poster="/assets/videos/AutoStroke/AutoStroke_Usage.jpg">
+    <source src="/assets/videos/AutoStroke/AutoStroke_Usage.mp4" type="video/mp4">
+  </video>
+</div>
 
 </div>
--->
 
 <div class="one-column" markdown="1">
 
