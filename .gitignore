@@ -10,3 +10,8 @@ _site/
 assets/images/**/*.mp4
 assets/images/**/*.tga
 assets/images/**/*.TGA
+
+# Raw hero-shot working folder: 2.2 GB of frame sequences, .blend files and source
+# models. Web encodes live in assets/videos/ and assets/images/.
+assets/HeroShots/
+assets/autostroke-heroshots/

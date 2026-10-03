@@ -236,3 +236,11 @@ table {
   font-weight: bold;
   text-align: center;
 }
+
+/* A wide figure that should fill the text column rather than sit at the theme's
+   739px image cap -- used for multi-panel comparison images. */
+.figure-wide img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}

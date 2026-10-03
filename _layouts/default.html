@@ -54,5 +54,21 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
+    <script>
+      // Silent looping videos use .no-ui, which sets pointer-events:none and shows no
+      // controls -- deliberate, because the viewer never needs to click them. But if the
+      // browser refuses autoplay (Safari's per-site Auto-Play setting, Low Power Mode, a
+      // preview pane), that leaves a dead poster frame the viewer cannot start. So: try to
+      // play, and if the promise rejects, hand the video back its controls.
+      document.querySelectorAll('.video-container.no-ui video').forEach(function (v) {
+        var p = v.play();
+        if (p && p.catch) {
+          p.catch(function () {
+            v.controls = true;
+            v.parentElement.classList.remove('no-ui');
+          });
+        }
+      });
+    </script>
   </body>
 </html>

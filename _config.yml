@@ -41,3 +41,5 @@ exclude:
   - "assets/images/**/*.mp4"
   - "assets/images/**/*.tga"
   - "assets/images/**/*.TGA"
+  - "assets/HeroShots"
+  - "assets/autostroke-heroshots"

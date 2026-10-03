@@ -9,17 +9,21 @@ title: AutoStroke
 
 **AutoStroke** is a Blender add-on that turns any mesh into a painterly, flat-per-stroke texture in a few seconds, and keeps the result updating live in the viewport while you adjust it. It continues the painterly texture pipeline I built for *[A Gentlemen's Dispute](/projects/agd/painterly-texture.html)*, rebuilt to remove that pipeline's biggest production blocker.
 
-*v0.10.9 · Blender 5.0+ · GPL-3.0 · [Source on GitHub](https://github.com/JSS6088/AutoStroke) · Last updated September 2026*
+Blender 5.0+ · [Source on GitHub](https://github.com/JSS6088/AutoStroke)
 
-<!-- TODO(media): assets/videos/AutoStroke/AutoStroke_Showcase.mp4 + AutoStroke_Showcase.jpg — uncomment the block below once encoded -->
-<!--
 <div class="video-container no-ui">
   <video autoplay muted loop playsinline preload="metadata"
          poster="/assets/videos/AutoStroke/AutoStroke_Showcase.jpg">
     <source src="/assets/videos/AutoStroke/AutoStroke_Showcase.mp4" type="video/mp4">
   </video>
 </div>
--->
+
+<div class="figure-wide" markdown="1">
+
+![Models textured with AutoStroke](/assets/images/AutoStroke/AutoStroke_combo.jpg)
+*Detail survives the bake, and a model's own texture maps come through painterly*
+
+</div>
 
 ## The blocker it removes
 
@@ -53,11 +57,11 @@ AutoStroke runs in vanilla Blender, lets artists look-dev in the viewport, and p
 
 In order to eliminate UV seams, I need to place strokes directly on the object's surface in world space. My first attempt used **geometry nodes** to randomly place points on the model. I hit a wall immediately: placing random strokes means small faces might not get a single stroke, thus losing details. Besides, there was no flexible way to tie a stroke's size to the face it sat on, so strokes came out too large on small faces and too sparse on large ones.
 
-The fix was to give every face of the mesh a stroke, with its size driven by that face's area. This makes sure even the smallest face gets at least one stroke. I then extended it to place multiple strokes on bigger faces, inspired from [Matt Pharr's articles on sampling points on triangles](https://pharr.org/matt/blog/2019/02/27/triangle-sampling-1).
+The fix was to give **every face of the mesh a stroke**, with its size driven by that face's area. This makes sure even the smallest face gets at least one stroke. I then extended it to place multiple strokes on bigger faces, inspired from [Matt Pharr's articles on sampling points on triangles](https://pharr.org/matt/blog/2019/02/27/triangle-sampling-1).
 
 ### Sampling strokes
 
-Each stroke is turned to run along the direction the surface bends least, so strokes follow the form of the model and are least likely to obscure its details.
+Each stroke is turned to **run along the direction the surface bends least**, so strokes follow the form of the model and are least likely to obscure its details.
 The strokes are then ordered by its size, when multiple strokes are overlapping one pixel, the smallest one is picked. This ensures smaller strokes never gets covered by large ones.
 
 ### Output
@@ -72,7 +76,26 @@ The full algorithm — the sampling, how each pixel resolves to a stroke, and th
 
 Judging a painterly look is a visual decision that works best if artists can see results in real-time. Therefore, I decided to include a Live preview feature that shows the result immediately in the viewport, with no bake and no waiting.
 
-The preview is a separate, faster path that only has to *look* right. The bake stays the one thing that produces the final textures, so the two can never disagree in a way that ships.
+## Brush presets
+
+The same model and the same stroke count, with three different brush sets. A set is just a folder of stroke images, so the look is swappable without touching the tool.
+
+</div>
+
+<div class="three-column" markdown="1">
+
+![Rough brush](/assets/images/AutoStroke/AutoStroke_brush_rough.jpg)
+*Rough*
+
+![Standard brush](/assets/images/AutoStroke/AutoStroke_brush_standard.jpg)
+*Standard*
+
+![Thin brush](/assets/images/AutoStroke/AutoStroke_brush_thin.jpg)
+*Thin*
+
+</div>
+
+<div class="one-column" markdown="1">
 
 ## Using it in Blender
 
@@ -93,14 +116,22 @@ The panel exposes stroke count, brush size, rotation and tonal variation. The ar
 
 <div class="one-column" markdown="1">
 
-## How it was built
-
-AutoStroke was built with AI assistance. I set the direction and made the calls; the implementation and the API work were delegated. The real gain was being able to test a design idea without first reading the Blender Python API end to end. The bottleneck on a tool like this was never typing — it was how fast an idea could be put in front of a mesh and judged.
 
 ## Future Directions
 
 This tool is distributed to an artist working on new maps for *A Gentlemen's Dispute*, and I am actively taking his feedback to improve its flexibility and usability.
 
 Another caveat is with *sampling* indirection maps. It only works with **nearest** sampling: blending two neighbouring values averages two different redirections and lands on an unrelated part of the source image, which shows up as wrong pixels along stroke edges. Nearest avoids that, but it gives up smooth filtering, because every point inside a pixel then reads from the same spot. Getting both — clean edges and smooth filtering — is the next thing I want to solve.
+
+## Citations
+
+AutoStroke was built with AI assistance. I set the direction and made the calls; the implementation and the API work were delegated. The real gain in AI-assisted programming was being able to test a design idea without first reading the Blender Python API end to end. It significantly reduced my bottleneck in debugging and let my quickly put my ideas in front of a mesh and make judgements.
+
+I modeled some of the example models, with a few exceptions. The sphinx is made by my friend Victor. [Sculpture “Bust of Róża Loewenfeld”](https://sketchfab.com/3d-models/sculpture-bust-of-roza-loewenfeld-fc6e731a0131471ba8e45511c7ea9996)
+, [Dead Wood 2](https://sketchfab.com/3d-models/cc0-dead-wood-2-898e076697144cffbbf17011bf2e3ac2)
+, [Suzzane](https://commons.wikimedia.org/wiki/File:Suzanne.stl) are public domain models.
+
+
+
 
 </div>
