@@ -19,13 +19,13 @@ My workflow starts in **Blender**, where I model and UV assets. I then bake obje
 
 <div class="three-column" markdown="1">
 
-[![Garden](/assets/images/AGD/AGD_garden.png)
+[![Garden](/assets/images/AGD/Garden_card.jpg)
 *Garden*](/projects/agd/garden.html)
 
-[![Island](/assets/images/AGD/AGD_island.png)
+[![Island](/assets/images/AGD/Island_card.jpg)
 *Island*](/projects/agd/island.html)
 
-[![The Blast Furnace](/assets/images/AGD/AGD_factory.png)
+[![The Blast Furnace](/assets/images/AGD/Factory_card.jpg)
 *The Blast Furnace*](/projects/agd/the-blast-furnace.html)
 
 </div>
