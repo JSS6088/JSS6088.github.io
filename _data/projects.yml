@@ -38,9 +38,7 @@
 - title: Destruction Pipeline
   blurb: Speed up the pipeline for pre-fracturing models
   url: /projects/agd/destruction-pipeline.html
-  # No card art yet — the grid falls back to a text tile. Add the image and
-  # uncomment this line to swap it in.
-  # card: /assets/images/DestructionPipeline/DestructionPipeline_card.jpg
+  card: /assets/images/AGD/DestructionPipeline_card.jpg
   tags: [Pipeline, Blender, Unity]
   sections: [tools]
 
