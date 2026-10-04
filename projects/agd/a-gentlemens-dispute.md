@@ -42,6 +42,9 @@ I work with **Shader Graph**, **HLSL**, and **Substance Designer**, and actively
 
 <div class="three-column" markdown="1">
 
+[![Destruction Pipeline](/assets/images/AGD/FoliageShader_1.png)
+*Destruction Pipeline*](/projects/agd/destruction-pipeline.html)
+
 [![Painterly Texture Pipeline](/assets/images/AGD/PainterlyShader_1.png)
 *Painterly Texture Pipeline*](/projects/agd/painterly-texture.html)
 

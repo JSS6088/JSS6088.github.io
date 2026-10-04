@@ -15,7 +15,7 @@
   blurb: A chaotic party brawler
   url: /projects/agd/a-gentlemens-dispute.html
   card: /assets/images/AGD/AGD_card.jpg
-  tags: [Shader, Pipeline, Unity]
+  tags: [Shader, Tools, Pipeline, Environment Art, Blender, Unity]
   sections: [games]
 
 - title: Its Clogged
@@ -31,29 +31,38 @@
   blurb: Painterly texturing with live preview
   url: /projects/autostroke/autostroke.html
   card: /assets/images/AutoStroke/AutoStroke_card.jpg
-  tags: [Tools, Pipeline, Shader, Blender]
+  tags: [Pipeline, Blender]
   sections: [tools]
   featured: true
+
+- title: Destruction Pipeline
+  blurb: Speed up the pipeline for pre-fracturing models
+  url: /projects/agd/destruction-pipeline.html
+  # No card art yet — the grid falls back to a text tile. Add the image and
+  # uncomment this line to swap it in.
+  # card: /assets/images/DestructionPipeline/DestructionPipeline_card.jpg
+  tags: [Pipeline, Blender, Unity]
+  sections: [tools]
 
 - title: PCG Gallery
   blurb: Creating a procedural gallery
   url: /projects/pcg-gallery/pcg-gallery.html
   card: /assets/images/PCGGallery/PCGGallery_card.jpg
-  tags: [Tools, Procedural, Unreal, Houdini]
+  tags: [Procedural, Unreal, Houdini]
   sections: [tools]
 
 - title: Painterly Texture Pipeline
   blurb: Painterly textures that hold under dynamic lighting
   url: /projects/agd/painterly-texture.html
   card: /assets/images/AGD/PainterlyShader_card.jpg
-  tags: [Pipeline, Substance, Unity]
+  tags: [Pipeline, Substance Designer, Unity]
   sections: [tools]
 
 - title: Procedural Buildings
   blurb: Generating 1990s Shanghai facades in Houdini
   url: /projects/blossom-shanghai/blossom-shanghai.html#procedural-building
   card: /assets/images/BlossomShanghai/BlossomShanghai_procedural_card.jpg
-  tags: [Tools, Procedural, Houdini]
+  tags: [Procedural, Houdini]
   sections: [tools]
 
 # ---------------------------------------------------------------- Shaders
@@ -62,7 +71,7 @@
   blurb: Glitter suspended inside a liquid
   url: /projects/starry-bottle/starry-bottle.html
   card: /assets/images/StarryBottle/StarryBottle_card.jpg
-  tags: [Shader, Blueprint, Unreal]
+  tags: [Blueprint, Unreal]
   sections: [shaders]
   featured: true
 
@@ -70,7 +79,7 @@
   blurb: Hand-drawn hatching that wraps to the form
   url: /projects/its-clogged/möbius-shader.html
   card: /assets/images/ItsClogged/Mobius_card.jpg
-  tags: [Shader, HLSL, Unity]
+  tags: [HLSL, Unity]
   sections: [shaders]
 
 - title: Real-time Water Simulation
@@ -84,28 +93,28 @@
   blurb: Stylized water for a painterly world
   url: /projects/agd/water-shader.html
   card: /assets/images/AGD/WaterShader_card.jpg
-  tags: [Shader, Shader Graph, Unity]
+  tags: [HLSL, Unity]
   sections: [shaders]
 
 - title: Foliage Shader
   blurb: Wind and translucency on leaf cards
   url: /projects/agd/foliage-shader.html
   card: /assets/images/AGD/FoliageShader_card.jpg
-  tags: [Shader, Shader Graph, Unity]
+  tags: [Unity]
   sections: [shaders]
 
 - title: Screenspace Outline
   blurb: Depth and normal edges for an inked look
   url: /projects/its-clogged/screenspace-outline-shader.html
   card: /assets/images/ItsClogged/OutlineScreenSpace_card.jpg
-  tags: [Shader, HLSL, Unity]
+  tags: [HLSL, Unity]
   sections: [shaders]
 
 - title: Inverted Hull Highlight
   blurb: Thick silhouettes for selected objects
   url: /projects/its-clogged/invertedhull-highlight-shader.html
   card: /assets/images/ItsClogged/OutlineInvertedHull_card.jpg
-  tags: [Shader, HLSL, Unity]
+  tags: [HLSL, Unity]
   sections: [shaders]
 
 # ---------------------------------------------------------------- Studies
@@ -135,5 +144,5 @@
   blurb: Hard surface modeling and texturing
   url: /projects/camera/camera.html
   card: /assets/images/Camera/Camera_card.jpg
-  tags: [Hard Surface, Maya, Substance]
+  tags: [Hard Surface, Maya, Substance Painter]
   sections: [studies]

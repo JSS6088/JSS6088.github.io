@@ -15,3 +15,6 @@ assets/images/**/*.TGA
 # models. Web encodes live in assets/videos/ and assets/images/.
 assets/HeroShots/
 assets/autostroke-heroshots/
+
+# Raw capture sources. Web encodes live beside them in assets/videos/.
+assets/_source/
