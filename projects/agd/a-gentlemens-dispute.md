@@ -7,7 +7,7 @@ title: A Gentlemen's Dispute
 
 # A Gentlemen's Dispute
 
-_A Gentlemen's Dispute_ is a slapstick physics-based **party brawler** where players fight each other as gentlemen until the last standing. The game offers **highly chaotic gameplay** with hilarious moments emerging from each player’s growing collection of perks and creative combination of items.
+[A Gentlemen's Dispute](https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/) is a slapstick physics-based **party brawler** where players fight each other as gentlemen until the last standing. The game offers **highly chaotic gameplay** with hilarious moments emerging from each player’s growing collection of perks and creative combination of items.
 
 ## Environment Art {#env-art}
 
@@ -42,7 +42,7 @@ I work with **Shader Graph**, **HLSL**, and **Substance Designer**, and actively
 
 <div class="three-column" markdown="1">
 
-[![Destruction Pipeline](/assets/images/AGD/FoliageShader_1.png)
+[![Destruction Pipeline](/assets/images/AGD/DestructionPipeline_square.jpg)
 *Destruction Pipeline*](/projects/agd/destruction-pipeline.html)
 
 [![Painterly Texture Pipeline](/assets/images/AGD/PainterlyShader_1.png)
