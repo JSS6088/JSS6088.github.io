@@ -35,8 +35,6 @@ For a single model, that is an annoyance. For a game where most of the set can b
 
 One button, run on the fracture output. It renames and numbers the pieces and parents them under a single empty, so the whole asset travels to Unity as one Game Object. It unwraps the interior cut faces so the broken surfaces can take a texture, and tags those interior vertices as a group so a shader can treat inside and outside differently. It deletes shards below a size threshold, with a preview that selects what *would* go before anything is removed. And where a model had to be split apart to fracture cleanly, it stitches the intact version back into one mesh at the end.
 
-</div>
-
 <div class="video-container">
   <video controls muted playsinline preload="metadata"
          poster="/assets/videos/DestructionPipeline/DestructionPipeline_Blender.jpg">
@@ -44,13 +42,9 @@ One button, run on the fracture output. It renames and numbers the pieces and pa
   </video>
 </div>
 
-<div class="one-column" markdown="1">
-
 ### Batch Material Remap — Unity
 
 Select the imported model, right-click, and a window lists every unique material used anywhere beneath it, each with a slot to drop the Unity replacement into. Apply writes the mapping onto the model's importer rather than onto the scene objects, so the swap survives every future reimport instead of being redone each time the asset changes.
-
-</div>
 
 <div class="video-container">
   <video controls muted playsinline preload="metadata"
@@ -58,8 +52,6 @@ Select the imported model, right-click, and a window lists every unique material
     <source src="/assets/videos/DestructionPipeline/DestructionPipeline_Unity.mp4" type="video/mp4">
   </video>
 </div>
-
-<div class="one-column" markdown="1">
 
 ## What it changed
 
