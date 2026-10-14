@@ -11,6 +11,22 @@
 
 # ---------------------------------------------------------------- Games
 
+- title: VALORANT Mobile
+  blurb: Adapting PC assets to mobile GPU budgets
+  url: /projects/valorant/valorant.html
+  # Official VALORANT key art.
+  card: /assets/images/Valorant/Valorant_card.jpg
+  tags: [Shader, Optimization, Mobile, Unreal]
+  sections: [games]
+
+- title: We're All In
+  blurb: A party dice game where everyone bets on everyone
+  url: /projects/were-all-in/were-all-in.html
+  # Official key art for the game.
+  card: /assets/images/WereAllIn/WereAllIn_card.jpg
+  tags: [Shader, Art Direction, Unity]
+  sections: [games]
+
 - title: A Gentlemen's Dispute
   blurb: A chaotic party brawler
   url: /projects/agd/a-gentlemens-dispute.html
