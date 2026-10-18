@@ -15,13 +15,11 @@ A pipeline for giving 3D assets a hand-painted, oil-painting look that holds up 
 
 [**Full writeup: AutoStroke →**](/projects/autostroke/autostroke.html)
 
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/embed/2QAXQjJjKY4?autoplay=0&controls=1&playsinline=1"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+<div class="video-container no-ui">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="/assets/videos/AutoStroke/AutoStroke_Showcase.jpg">
+    <source src="/assets/videos/AutoStroke/AutoStroke_Showcase.mp4" type="video/mp4">
+  </video>
 </div>
 
 ## v1: the Substance Designer pipeline
