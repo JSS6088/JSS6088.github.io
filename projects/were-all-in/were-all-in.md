@@ -18,6 +18,7 @@ title: We're All In
 I was the **technical artist and art direction lead**, and the constraint that shaped every decision was time — the art went from nothing to release-ready **in a month**.
 
 - **Material system.** Every surface reads as a real toy material: painted wood, glossy plastic, metal, felt. Each map then gets its own colour palette, chosen to evoke a particular feeling.
+- **Rendering layer masks.** Unity's built-in rendering layer mask gives individual objects an ID, which let me change an object's texture pattern quickly.
 - **Toon shading.** A custom-adjusted toon shader tuned for readability, with ambient and reflection driven by a matcap rather than the skybox.
 - **Vertex colour.** Used extensively for object colour and detail, which cut the number of material variants the game had to carry.
 - **Procedural tooling.** A Blender Geometry Nodes setup for the chips, with colour masking and a per-copy random seed, so variations are generated rather than modelled by hand.

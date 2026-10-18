@@ -19,11 +19,13 @@ title: VALORANT Mobile
 
 # VALORANT Mobile
 
-During my internship at **Tencent** I adapted VALORANT weapon skins and map assets from their PC versions to mobile GPU budgets — cutting shader ALU cost, texture sampling and texture memory (ASTC) while keeping the assets looking like themselves.
+During my internship at **Tencent** I adapted VALORANT weapon skins and map assets from their PC versions to mobile GPU budgets while keeping the assets looking like themselves.
 
 ## Aurora shader optimization
 
 The aurora on **Summit** was one of those assets. I reduced its texture samples and arithmetic across both of its shaders, without changing how it looks in game.
+
+Two changes did it. The shader sampled the same mask four times, each time with different UV coordinates, so I **channel-packed** those four lookups into a single texture, one per channel — four samples became one. And the scene has almost no fog, so turning off vertex fog cut arithmetic instructions that were not buying anything.
 
 Measured in the **Mali Offline Compiler**:
 
