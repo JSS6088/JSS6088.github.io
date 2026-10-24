@@ -15,7 +15,7 @@ title: We're All In
 ![A round of Paint The Tiles](/assets/images/WereAllIn/WereAllIn_gameplay.jpg)
 *Paint The Tiles, one of the minigames.*
 
-I was the **technical artist and art direction lead**, and the constraint that shaped every decision was time — the art went from nothing to release-ready **in a month**.
+I was the **technical artist, art direction lead and sole 3D artist** on the game. It ships with **40 minigames**, and I **modelled and textured every arena** in it. The constraint that shaped every decision was time — the art went from nothing to release-ready **in a month**.
 
 - **Material system.** Every surface reads as a real toy material: painted wood, glossy plastic, metal, felt. Each map then gets its own colour palette, chosen to evoke a particular feeling.
 - **Rendering layer masks.** Unity's built-in rendering layer mask gives individual objects an ID, which let me change an object's texture pattern quickly.
