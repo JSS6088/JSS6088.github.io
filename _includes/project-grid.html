@@ -4,12 +4,16 @@ Renders project cards from _data/projects.yml.
   {% include project-grid.html section="shaders" %}   one section's projects
   {% include project-grid.html featured=true %}       the home page highlights
 
+Highlights are ordered by the `featured` number, smallest first, because the
+home page tells a different story from the section pages and does not want
+their file order. Everywhere else, file order wins.
+
 A card is a linked image, an italic caption, then a row of tag pills. An entry
 with no `card` image falls back to a typographic tile of the same size.
 Entries marked `draft: true` are skipped everywhere.
 {% endcomment %}
 {% if include.featured %}
-  {% assign entries = site.data.projects | where: "featured", true %}
+  {% assign entries = site.data.projects | where_exp: "p", "p.featured" | sort: "featured" %}
 {% else %}
   {% assign entries = site.data.projects %}
 {% endif %}
