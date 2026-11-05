@@ -11,7 +11,11 @@ I'm a technical artist working on shaders, tools and real-time rendering.
 
 <div class="video-container">
   <iframe
+<<<<<<< Updated upstream
     src="https://www.youtube.com/embed/HFI2GPyUzU4?autoplay=0&mute=0&loop=1&playlist=HFI2GPyUzU4&controls=1&playsinline=1"
+=======
+    src="https://www.youtube.com/embed/NjjSr-K2i4U?autoplay=0&mute=0&loop=1&playlist=NjjSr-K2i4U&controls=1&playsinline=1"
+>>>>>>> Stashed changes
     frameborder="0"
     allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
